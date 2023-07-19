@@ -1,0 +1,112 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: 'InterBold';
+  src: url("../fonts/Inter-Bold.ttf");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Inika';
+  src: url("../fonts/Inter-Regular.ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Forum';
+  src: url("../fonts/Forum-Regular.ttf");
+  font-weight: 400;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.header {
+  background: #0C0C0E;
+  padding: 20px 0;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  margin-right: 413px;
+}
+
+.logo__image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo__title {
+  font-family: 'Forum', sans-serif;
+  color: #FFF;
+  font-size: 30px;
+  line-height: 50px;
+  letter-spacing: 0.6px;
+  transition: transform 0.3s ease;
+}
+
+.logo__title:hover, .menu__link:hover {
+  transform: scale(1.1);
+  color: #BB945F;
+}
+
+.logo__title:active {
+  color: #c1ff00;
+}
+
+.menu__list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.menu__item {
+  margin-right: 30px;
+}
+
+.menu__item:last-child {
+  margin-right: 0;
+}
+
+.menu__link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #FFF;
+  font-size: 20px;
+  line-height: 50px;
+  transition: transform 0.3s ease;
+}
+
+.icon {
+  margin-top: 4px;
+}
+
+.icon svg path {
+  fill: white;
+  transition: transform 0.5s ease;
+}
+
+.icon:hover path {
+  fill: #BB945F;
+}
