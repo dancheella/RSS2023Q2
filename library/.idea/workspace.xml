@@ -5,22 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="19ed5206-4382-4263-9e79-fa2bd560d49f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../.idea/dancheella-JSFEPRESCHOOL2023Q2.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/img/favorites/autumn/ureneck.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/img/favorites/autumn/white.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/img/favorites/spring/body.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/img/favorites/spring/carry.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/img/favorites/spring/chang.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/img/favorites/spring/cruz.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/img/favorites/summer/chouinard.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/img/favorites/summer/kiana.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/img/favorites/summer/memoir.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/img/favorites/summer/poems.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/img/favorites/winter/cackle.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/img/favorites/winter/dante.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/img/favorites/winter/eaters.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/img/favorites/winter/queen.jpeg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/styles.css" afterDir="false" />
@@ -86,7 +70,7 @@
       <workItem from="1689796494079" duration="716000" />
       <workItem from="1689797486893" duration="14765000" />
       <workItem from="1689852560698" duration="30309000" />
-      <workItem from="1689884674839" duration="2279000" />
+      <workItem from="1689884674839" duration="11328000" />
     </task>
     <servers />
   </component>
