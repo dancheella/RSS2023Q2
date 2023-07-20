@@ -4,7 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="19ed5206-4382-4263-9e79-fa2bd560d49f" name="Changes" comment="" />
+    <list default="true" id="19ed5206-4382-4263-9e79-fa2bd560d49f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/dancheella-JSFEPRESCHOOL2023Q2.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/img/favorites/autumn/ureneck.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/img/favorites/autumn/white.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/img/favorites/spring/body.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/img/favorites/spring/carry.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/img/favorites/spring/chang.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/img/favorites/spring/cruz.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/img/favorites/summer/chouinard.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/img/favorites/summer/kiana.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/img/favorites/summer/memoir.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/img/favorites/summer/poems.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/img/favorites/winter/cackle.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/img/favorites/winter/dante.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/img/favorites/winter/eaters.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/img/favorites/winter/queen.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/styles.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,6 +45,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
@@ -41,6 +62,10 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/fonts" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/img/favorites/winter" />
+      <recent name="$PROJECT_DIR$/src/img/about" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -60,6 +85,8 @@
       <workItem from="1689796415032" duration="42000" />
       <workItem from="1689796494079" duration="716000" />
       <workItem from="1689797486893" duration="14765000" />
+      <workItem from="1689852560698" duration="30309000" />
+      <workItem from="1689884674839" duration="2279000" />
     </task>
     <servers />
   </component>

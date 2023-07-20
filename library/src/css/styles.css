@@ -162,7 +162,7 @@ body {
   flex-direction: column;
 }
 
-.about__info-title {
+.about__info-title, .favorites__title {
   color: #0C0C0E;
   font-family: 'Forum', sans-serif;
   font-size: 40px;
@@ -172,6 +172,7 @@ body {
   text-transform: capitalize;
   position: relative;
   margin-bottom: 61px;
+  text-align: center;
 }
 
 .about__info-title::after {
@@ -195,8 +196,8 @@ body {
 
 .about__image {
   display: flex;
+  flex-wrap: wrap;
   font-size: 0;
-  margin-bottom: 40px;
 }
 
 .about__image-img {
@@ -205,6 +206,7 @@ body {
   width: 450px;
   height: 560px;
   margin-right: 25px;
+  margin-bottom: 35px;
 }
 
 .about__image-img:last-child {
@@ -242,4 +244,226 @@ body {
 
 .about__pagination:active .about__button {
   background: #8E8E8E;
+}
+
+.favorites {
+  background: #FFF;
+  padding: 15px 60px 40px 20px;
+}
+
+.favorites__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.favorites__title {
+  margin-left: 41px;
+  max-width: 160px;
+}
+
+.favorites__title::after {
+  content: '';
+  position: absolute;
+  bottom: -21px;
+  left: 55px;
+  width: 50px;
+  height: 1px;
+  background: #0C0C0E;
+  flex-shrink: 0;
+}
+
+.favorites__text {
+  align-self: flex-start;
+  color: #000;
+  font-family: 'InterBold', sans-serif;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.favorites__seasons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  height: 27px;
+  margin-bottom: 37px;
+  max-width: 700px;
+}
+
+.favorites__seasons label {
+  margin-right: 92px;
+  color: #000;
+  font-size: 20px;
+  font-weight: 400;
+  position: relative;
+  padding-left: 38px;
+  cursor: pointer;
+}
+
+.favorites__seasons label:last-child {
+  margin-right: 0;
+}
+
+.favorites__seasons input {
+  display: none;
+}
+
+.favorites__seasons input + label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 13px;
+  height: 13px;
+  border: 2px solid #000;
+  border-radius: 50%;
+}
+
+.favorites__seasons input:checked + label::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 7px;
+  height: 7px;
+  background: #000;
+  border-radius: 50%;
+}
+
+.favorites__seasons input:checked + label {
+  /*font-family: 'InterBold', sans-serif;*/
+  text-shadow: 1px 0 0 currentColor;
+}
+
+.favorites__items-winter,
+.favorites__items-spring,
+.favorites__items-summer,
+.favorites__items-autumn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.favorites__items-spring,
+.favorites__items-summer,
+.favorites__items-autumn {
+  display: none;
+}
+
+.favorites__item {
+  width: 550px;
+  height: 555px;
+  border: 1px solid #000;
+  padding: 13px 19px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.favorites__item-mark {
+  color: #000;
+  font-family: 'Forum', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.favorites__item-mark:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 1px;
+  background: #BB945F;
+  flex-shrink: 0;
+}
+
+.favorites__item-title, .favorites__item-author {
+  color: #000;
+  font-family: 'InterBold', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.favorites__item-author {
+  text-transform: capitalize;
+  margin-bottom: 20px;
+}
+
+.favorites__item-info {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 365px;
+}
+
+.favorites__item-description {
+  color: #000;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+  max-width: 357px;
+}
+
+.favorites__item-button, .own-button {
+  color: #0C0C0E;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 8px 25px;
+  box-sizing: border-box;
+  background: transparent;
+  border-radius: 2px;
+  border: 1px solid #0C0C0E;
+  width: 75px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.favorites__item-button:hover {
+  border: 1px solid #BB945F;
+  background: #BB945F;
+}
+
+.favorites__item-button:active {
+  border: 1px solid #f6bb74;
+  background: #f6bb74;
+  color: #FFF;
+}
+
+.own-button {
+  border: 1px solid #BB945F;
+  color: #BB945F;
+  cursor: not-allowed;
+}
+
+.favorites__item-image {
+  position: absolute;
+  content: '';
+  top: 254px;
+  right: -41px;
+}
+
+.favorites__item-image__picture {
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
 }
