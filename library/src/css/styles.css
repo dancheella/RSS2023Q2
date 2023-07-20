@@ -70,7 +70,7 @@ body {
   color: #BB945F;
 }
 
-.logo__title:active {
+.logo__title:active, .menu__link:active {
   color: #c1ff00;
 }
 
