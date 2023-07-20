@@ -218,15 +218,28 @@ body {
 }
 
 .about__pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.about__button {
   width: 16px;
   height: 16px;
   background: #0C0C0E;
   border-radius: 50%;
-  margin-right: 5px;
-  margin-left: 5px;
   cursor: pointer;
+  border: none;
 }
 
-.about__pagination:first-child {
+.about__pagination:first-child .about__button {
   background: #BB945F;
+}
+
+.about__pagination:active .about__button {
+  background: #8E8E8E;
 }
