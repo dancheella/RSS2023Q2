@@ -59,6 +59,7 @@ body {
   font-weight: 400;
   letter-spacing: 0.6px;
   transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
 .logo__title:hover, .menu__link:hover {
@@ -93,6 +94,7 @@ body {
   line-height: 50px;
   font-weight: 400;
   border-bottom: 2px solid transparent;
+  cursor: pointer;
 }
 
 .menu__link:hover {
@@ -102,6 +104,7 @@ body {
 
 .icon {
   margin-top: 2px;
+  cursor: pointer;
 }
 
 .icon svg path {
@@ -182,17 +185,18 @@ body {
   flex-shrink: 0;
 }
 
-.about__image {
-  display: flex;
-  font-size: 0;
-}
-
 .about__info-text {
   color: #000;
   font-size: 20px;
   font-weight: 400;
   line-height: 40px;
   margin-bottom: 20px;
+}
+
+.about__image {
+  display: flex;
+  font-size: 0;
+  margin-bottom: 40px;
 }
 
 .about__image-img {
@@ -205,4 +209,24 @@ body {
 
 .about__image-img:last-child {
   margin-right: 0;
+}
+
+.about__carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about__pagination {
+  width: 16px;
+  height: 16px;
+  background: #0C0C0E;
+  border-radius: 50%;
+  margin-right: 5px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.about__pagination:first-child {
+  background: #BB945F;
 }
