@@ -60,6 +60,7 @@ body {
   letter-spacing: 0.6px;
   transition: transform 0.3s ease;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .logo__title:hover, .menu__link:hover {
@@ -167,7 +168,8 @@ body {
 .about__info-title,
 .favorites__title,
 .coffee-shop__info-title,
-.contacts__title {
+.contacts__title,
+.library-card__title {
   color: #0C0C0E;
   font-family: 'Forum', sans-serif;
   font-size: 40px;
@@ -182,7 +184,8 @@ body {
 
 .about__info-title::after,
 .coffee-shop__info-title::after,
-.contacts__title::after {
+.contacts__title::after,
+.library-card__title::after {
   content: '';
   position: absolute;
   bottom: -21px;
@@ -432,7 +435,8 @@ body {
 }
 
 .favorites__item-button,
-.own-button {
+.own-button,
+.library-card__info-registration__button {
   color: #0C0C0E;
   text-align: center;
   font-size: 10px;
@@ -446,14 +450,17 @@ body {
   width: 75px;
   height: 30px;
   cursor: pointer;
+  transition: background 0.5s ease;
 }
 
-.favorites__item-button:hover {
+.favorites__item-button:hover,
+.library-card__info-registration__button:hover {
   border: 1px solid #BB945F;
   background: #BB945F;
 }
 
-.favorites__item-button:active {
+.favorites__item-button:active,
+.library-card__info-registration__button:active {
   border: 1px solid #f6bb74;
   background: #f6bb74;
   color: #FFF;
@@ -567,7 +574,8 @@ body {
   background: #BB945F;
 }
 
-.contacts__container {
+.contacts__container,
+.library-card__container {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -582,7 +590,8 @@ body {
   left: 95px;
 }
 
-.contacts__info {
+.contacts__info,
+.library-card__info {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -626,4 +635,128 @@ body {
   height: 414px;
   width: 696px;
   object-fit: cover;
+}
+
+.library-card {
+  padding: 15px 20px 40px 20px;
+}
+
+.library-card__title {
+  max-width: 375px;
+  margin: 0 auto 61px;
+}
+
+.library-card__title::after {
+  left: 161px;
+}
+
+.library-card__info-find {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.library-card__info-title {
+  color: #000;
+  font-size: 30px;
+  font-weight: 400;
+  letter-spacing: 0.6px;
+  margin-bottom: 30px;
+
+}
+
+.library-card__info-bg {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  border: 3px solid #BB945F;
+  padding: 18px 20px 26px 20px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25);
+  width: 600px;
+  box-sizing: border-box;
+}
+
+.library-card__info-form {
+  display: flex;
+  flex-direction: column;
+  background: #BB945F;
+  padding: 20px 20px 25px 20px;
+  width: 560px;
+  box-sizing: border-box;
+}
+
+.library-card__info-form__title {
+  color: #000;
+  font-family: 'Forum', sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 50px;
+  letter-spacing: 0.6px;
+  margin-bottom: 20px;
+}
+
+.library-card__info-form__input {
+  border-radius: 10px;
+  background: #FFF;
+  border: 0;
+  color: #8E8E8E;
+  font-family: 'Forum', sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 50px;
+  letter-spacing: 0.6px;
+  padding: 8px 20px;
+  margin-bottom: 25px;
+}
+
+.library-card__info-form__input:last-child {
+ margin-bottom: 0;
+}
+
+.library-card__info-find__button {
+  color: #0C0C0E;
+  text-align: center;
+  font-family: 'InterBold', sans-serif;
+  font-size: 20px;
+  letter-spacing: 1px;
+  padding: 9px 39px;
+  border-radius: 2px;
+  border: 1px solid #0C0C0E;
+  background: transparent;
+}
+
+.library-card__info-registration {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 35px;
+}
+
+.library-card__info-registration__title {
+  color: #000;
+  font-family: 'Forum', sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  letter-spacing: 0.6px;
+}
+
+.library-card__info-registration__description {
+  color: #000;
+  text-align: right;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 0.4px;
+  max-width: 456px;
+}
+
+.library-card__info-registration__buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.library-card__info-registration__button {
+  padding: 8px;
 }

@@ -10,8 +10,8 @@
 
 <header class="header">
   <div class="container header__container">
-    <h1 href="#" class="logo">
-      <a class="logo__title">Brooklyn Public Library</a>
+    <h1 class="logo">
+      <a href="#" class="logo__title">Brooklyn Public Library</a>
     </h1>
     <div class="menu">
       <nav class="menu__body">
@@ -460,7 +460,8 @@
           </div>
           <div class="contacts__info-staff">
             <h3 class="contacts__info-staff__title">Senior Staff</h3>
-            <a href="mailto:amanda.hirst@example.com" class="contacts__info-staff__person">Library Director: <span class="person-name">Amanda Hirst</span></a>
+            <a href="mailto:amanda.hirst@example.com" class="contacts__info-staff__person">Library Director: <span
+              class="person-name">Amanda Hirst</span></a>
           </div>
         </div>
         <div class="contacts__info-image">
@@ -469,6 +470,36 @@
       </div>
     </div>
   </section>
+
+  <section class="library-card" id="library-card">
+    <div class="container library-card__container">
+      <h2 class="library-card__title">Digital Library Cards</h2>
+      <div class="library-card__info">
+        <div class="library-card__info-find">
+          <h3 class="library-card__info-title">Find your Library card</h3>
+          <div class="library-card__info-bg">
+            <form class="library-card__info-form">
+              <h4 class="library-card__info-form__title">Brooklyn Public Library</h4>
+              <input type="text" name="field1" class="library-card__info-form__input" placeholder="Reader's name" aria-label="Reader's name">
+              <input type="text" name="field2" class="library-card__info-form__input" placeholder="Card number" aria-label="Card number">
+            </form>
+            <button type="button" class="library-card__info-find__button">Check the card</button>
+          </div>
+        </div>
+        <div class="library-card__info-registration">
+          <h3 class="library-card__info-registration__title">Get a reader card</h3>
+          <div class="library-card__info-registration__description">
+            You will be able to see a reader card after logging into account or you can register a new account
+          </div>
+          <div class="library-card__info-registration__buttons">
+            <button type="button" class="library-card__info-registration__button">Sign Up</button>
+            <button type="button" class="library-card__info-registration__button">Log in</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </main>
 </body>
 </html>
