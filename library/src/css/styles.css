@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  text-decoration: none;
 }
 
 @font-face {
@@ -47,7 +48,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  text-decoration: none;
   margin-right: 413px;
 }
 
@@ -60,16 +60,24 @@ body {
   letter-spacing: 0.6px;
   transition: transform 0.3s ease;
   cursor: pointer;
-  text-decoration: none;
 }
 
-.logo__title:hover, .menu__link:hover {
+.logo__title:hover,
+.menu__link:hover,
+.social__address:hover,
+.footer__social-icon:hover,
+.footer__rss:hover,
+.footer__github:hover {
   transform: scale(1.1);
   color: #BB945F;
 }
 
-.logo__title:active, .menu__link:active {
-  color: #c1ff00;
+.logo__title:active,
+.menu__link:active,
+.social__address:active,
+.footer__rss:active,
+.footer__github:active {
+  color: #f6bb74;
 }
 
 .menu__list {
@@ -89,7 +97,6 @@ body {
 .menu__link {
   display: flex;
   align-items: center;
-  text-decoration: none;
   color: #FFF;
   font-size: 20px;
   line-height: 50px;
@@ -113,7 +120,8 @@ body {
   transition: transform 0.5s ease;
 }
 
-.icon:hover path {
+.icon:hover path,
+.footer__social-icon:hover path {
   fill: #BB945F;
 }
 
@@ -150,7 +158,8 @@ body {
 }
 
 .about__container,
-.coffee-shop__container {
+.coffee-shop__container,
+.favorites__container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -262,10 +271,8 @@ body {
   padding: 15px 60px 40px 20px;
 }
 
-.favorites__container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.favorites__container,
+.footer__container {
   flex-direction: column;
 }
 
@@ -454,13 +461,15 @@ body {
 }
 
 .favorites__item-button:hover,
-.library-card__info-registration__button:hover {
+.library-card__info-registration__button:hover,
+.library-card__info-find__button:hover {
   border: 1px solid #BB945F;
   background: #BB945F;
 }
 
 .favorites__item-button:active,
-.library-card__info-registration__button:active {
+.library-card__info-registration__button:active,
+.library-card__info-find__button:active{
   border: 1px solid #f6bb74;
   background: #f6bb74;
   color: #FFF;
@@ -612,9 +621,8 @@ body {
   text-transform: capitalize;
 }
 
-.contacts__info-description a{
+.contacts__info-description a {
   color: #000;
-  text-decoration: none;
 }
 
 .contacts__info-title,
@@ -638,7 +646,7 @@ body {
 }
 
 .library-card {
-  padding: 15px 20px 40px 20px;
+  padding: 15px 20px 41px 20px;
 }
 
 .library-card__title {
@@ -662,7 +670,6 @@ body {
   font-weight: 400;
   letter-spacing: 0.6px;
   margin-bottom: 30px;
-
 }
 
 .library-card__info-bg {
@@ -700,7 +707,6 @@ body {
   border-radius: 10px;
   background: #FFF;
   border: 0;
-  color: #8E8E8E;
   font-family: 'Forum', sans-serif;
   font-size: 30px;
   font-weight: 400;
@@ -708,10 +714,15 @@ body {
   letter-spacing: 0.6px;
   padding: 8px 20px;
   margin-bottom: 25px;
+  outline: none;
+}
+
+.library-card__info-form__input::placeholder {
+  color: #8E8E8E;
 }
 
 .library-card__info-form__input:last-child {
- margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .library-card__info-find__button {
@@ -724,6 +735,8 @@ body {
   border-radius: 2px;
   border: 1px solid #0C0C0E;
   background: transparent;
+  transition: background 0.5s ease;
+  cursor: pointer;
 }
 
 .library-card__info-registration {
@@ -759,4 +772,92 @@ body {
 
 .library-card__info-registration__button {
   padding: 8px;
+}
+
+.footer {
+  background: #0C0C0E;
+  padding: 20px 20px 46px 20px;
+}
+
+.footer__container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer__contacts,
+.footer__info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer__contacts {
+  margin-bottom: 29px;
+}
+
+.footer__social {
+  display: flex;
+  flex-direction: column;
+  max-width: 229px;
+}
+
+.social__address {
+  color: #FFF;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.footer__social-icons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  transition: transform 0.3s ease;
+}
+
+.footer__social-icon:active path {
+  fill: #f6bb74;
+}
+
+.footer__time {
+  display: flex;
+  flex-direction: column;
+  color: #FFF;
+  text-align: right;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+  max-width: 149px;
+}
+
+.footer__time-weekdays {
+  margin-bottom: 10px;
+}
+
+.footer__line {
+  height: 1px;
+  background: #FFF;
+  margin-bottom: 44px;
+}
+
+.footer__info {
+  color: #FFF;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 2px;
+}
+
+.footer__rss {
+  color: #FFF;
+  margin-left: 67px;
+  transition: transform 0.3s ease;
+}
+
+.footer__github {
+  color: #FFF;
+  transition: transform 0.3s ease;
 }
