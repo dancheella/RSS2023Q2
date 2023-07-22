@@ -58,23 +58,24 @@ body {
   line-height: 50px;
   font-weight: 400;
   letter-spacing: 0.6px;
-  transition: transform 0.3s ease;
+  transition: all 0.3s linear;
   cursor: pointer;
 }
 
 .logo__title:hover,
 .menu__link:hover,
-.social__address:hover,
-.footer__social-icon:hover,
+.footer__social-address:hover,
+.footer__list:hover,
 .footer__rss:hover,
 .footer__github:hover {
   transform: scale(1.1);
   color: #BB945F;
+  filter: drop-shadow(0 0 5px #59c3d7);
 }
 
 .logo__title:active,
 .menu__link:active,
-.social__address:active,
+.footer__social-address:active,
 .footer__rss:active,
 .footer__github:active {
   color: #f6bb74;
@@ -106,23 +107,21 @@ body {
 }
 
 .menu__link:hover {
-  transition: all 0.5s ease-in;
+  transition: all 0.3s linear;
   border-bottom: 2px solid #BB945F;
 }
 
 .icon {
   margin-top: 2px;
   cursor: pointer;
-}
-
-.icon svg path {
+  transition: all 0.3s linear;
   fill: white;
-  transition: transform 0.5s ease;
 }
 
-.icon:hover path,
-.footer__social-icon:hover path {
+.icon:hover,
+.footer__list:hover path {
   fill: #BB945F;
+  filter: drop-shadow(0 0 5px #59c3d7);
 }
 
 .welcome {
@@ -307,12 +306,12 @@ body {
   align-items: center;
   justify-content: center;
   align-self: flex-start;
-  height: 27px;
   margin-bottom: 37px;
   max-width: 700px;
 }
 
 .favorites__seasons label {
+  height: 27px;
   margin-right: 92px;
   color: #000;
   font-size: 20px;
@@ -457,7 +456,7 @@ body {
   width: 75px;
   height: 30px;
   cursor: pointer;
-  transition: background 0.5s ease;
+  transition: all 0.3s linear;
 }
 
 .favorites__item-button:hover,
@@ -469,7 +468,7 @@ body {
 
 .favorites__item-button:active,
 .library-card__info-registration__button:active,
-.library-card__info-find__button:active{
+.library-card__info-find__button:active {
   border: 1px solid #f6bb74;
   background: #f6bb74;
   color: #FFF;
@@ -639,6 +638,16 @@ body {
   gap: 20px;
 }
 
+.person-name:hover,
+.contacts__info-phones a:hover {
+  color: #BB945F;
+}
+
+.contacts__info-phones a:active,
+.person-name:active {
+  color: #f6bb74;
+}
+
 .contacts__info-image__picture {
   height: 414px;
   width: 696px;
@@ -735,7 +744,7 @@ body {
   border-radius: 2px;
   border: 1px solid #0C0C0E;
   background: transparent;
-  transition: background 0.5s ease;
+  transition: all 0.3s linear;
   cursor: pointer;
 }
 
@@ -801,23 +810,27 @@ body {
   max-width: 229px;
 }
 
-.social__address {
+.footer__social-address {
   color: #FFF;
   font-size: 15px;
   font-weight: 400;
   line-height: 20px;
   margin-bottom: 20px;
-  transition: transform 0.3s ease;
+  transition: all 0.3s linear;
 }
 
 .footer__social-icons {
   display: flex;
   align-items: center;
   gap: 15px;
-  transition: transform 0.3s ease;
+  transition: all 0.3s linear;
 }
 
-.footer__social-icon:active path {
+.footer__list {
+  list-style: none;
+}
+
+.footer__list:active path {
   fill: #f6bb74;
 }
 
@@ -854,10 +867,10 @@ body {
 .footer__rss {
   color: #FFF;
   margin-left: 67px;
-  transition: transform 0.3s ease;
+  transition: all 0.3s linear;
 }
 
 .footer__github {
   color: #FFF;
-  transition: transform 0.3s ease;
+  transition: all 0.3s linear;
 }
