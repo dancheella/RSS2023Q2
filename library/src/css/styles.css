@@ -226,6 +226,13 @@ body {
   height: 560px;
   margin-right: 25px;
   margin-bottom: 35px;
+  transition: all 0.3s linear;
+}
+
+.about__image-img:hover,
+.favorites__item-image__picture:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 5px #0C0C0E);
 }
 
 .about__image-img:last-child {
@@ -491,6 +498,7 @@ body {
   width: 200px;
   height: 300px;
   object-fit: cover;
+  transition: all 0.3s linear;
 }
 
 .coffee-shop__info-title::after {
