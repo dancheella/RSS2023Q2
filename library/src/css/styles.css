@@ -275,7 +275,7 @@ body {
 
 .favorites {
   background: #FFF;
-  padding: 15px 60px 40px 20px;
+  padding: 15px 20px 40px 20px;
 }
 
 .favorites__container,
@@ -284,7 +284,6 @@ body {
 }
 
 .favorites__title {
-  margin-left: 41px;
   max-width: 160px;
 }
 
@@ -390,6 +389,7 @@ body {
   padding: 13px 19px;
   position: relative;
   box-sizing: border-box;
+  margin-right: 40px;
 }
 
 .favorites__item-mark {
