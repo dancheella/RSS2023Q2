@@ -202,7 +202,6 @@ body {
   width: 50px;
   height: 1px;
   background: #0C0C0E;
-  flex-shrink: 0;
 }
 
 .about__info-text,
@@ -295,7 +294,6 @@ body {
   width: 50px;
   height: 1px;
   background: #0C0C0E;
-  flex-shrink: 0;
 }
 
 .favorites__text {
@@ -412,7 +410,6 @@ body {
   width: 60px;
   height: 1px;
   background: #BB945F;
-  flex-shrink: 0;
 }
 
 .favorites__item-title,
