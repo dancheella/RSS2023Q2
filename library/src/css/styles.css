@@ -218,9 +218,14 @@ body {
 
 .about__image {
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
   font-size: 0;
   gap: 25px;
+}
+
+.about__image-svg {
+  display: none;
 }
 
 .about__image-img {
@@ -242,7 +247,7 @@ body {
   margin-right: 0;
 }
 
-.about__image-img:nth-last-child(-n+2) {
+.about__image-img:nth-last-child(-n+3) {
   display: none;
 }
 
@@ -330,6 +335,7 @@ body {
 
 .favorites__seasons label {
   height: 27px;
+  /*margin-right: 92px;*/
   color: #000;
   font-size: 20px;
   font-weight: 400;
