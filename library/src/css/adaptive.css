@@ -1,6 +1,20 @@
 @media screen and (max-width: 1262px) {
-  .about__image-img:nth-last-child(-n+4) {
+  .about__image {
+    gap: 58px;
+  }
+
+  .about__image-img:nth-last-child(-n+5) {
     display: none;
+  }
+
+  .about__image-svg {
+    display: flex;
+    margin-top: 21px;
+    cursor: pointer;
+  }
+
+  .about__image-svg:hover path{
+    stroke: #BB945F;
   }
 
   .about__pagination:nth-child(4),
