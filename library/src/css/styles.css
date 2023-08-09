@@ -49,7 +49,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 413px;
 }
 
 .logo__title {
@@ -82,18 +81,18 @@ body {
   color: #f6bb74;
 }
 
-.menu__list {
+.menu {
   display: flex;
   align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+.menu__list {
+  display: flex;
+  gap: 30px;
+  align-items: center;
   list-style: none;
-}
-
-.menu__item {
-  margin-right: 30px;
-}
-
-.menu__item:last-child {
-  margin-right: 0;
 }
 
 .menu__link {
@@ -123,6 +122,10 @@ body {
 .footer__list:hover path {
   fill: #BB945F;
   filter: drop-shadow(0 0 5px #59c3d7);
+}
+
+.menu__icon {
+  display: none;
 }
 
 .welcome {
@@ -217,6 +220,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   font-size: 0;
+  gap: 25px;
 }
 
 .about__image-img {
@@ -224,7 +228,6 @@ body {
   object-fit: cover;
   width: 450px;
   height: 560px;
-  margin-right: 25px;
   margin-bottom: 35px;
   transition: all 0.3s linear;
 }
@@ -237,6 +240,10 @@ body {
 
 .about__image-img:last-child {
   margin-right: 0;
+}
+
+.about__image-img:nth-last-child(-n+2) {
+  display: none;
 }
 
 .about__carousel {
@@ -253,6 +260,11 @@ body {
   height: 26px;
   background: transparent;
   cursor: pointer;
+}
+
+.about__pagination:nth-child(4),
+.about__pagination:nth-child(5) {
+  display: none;
 }
 
 .about__button {
@@ -313,11 +325,11 @@ body {
   align-self: flex-start;
   margin-bottom: 37px;
   max-width: 700px;
+  gap: 92px;
 }
 
 .favorites__seasons label {
   height: 27px;
-  margin-right: 92px;
   color: #000;
   font-size: 20px;
   font-weight: 400;
@@ -657,6 +669,7 @@ body {
 .contacts__info-image__picture {
   height: 414px;
   width: 696px;
+  max-width: 100%;
   object-fit: cover;
 }
 

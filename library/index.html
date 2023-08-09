@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Library</title>
   <link rel="stylesheet" href="src/css/styles.css">
+  <link rel="stylesheet" href="src/css/adaptive.css">
   <link rel="icon" href="src/img/icon.png">
 </head>
 <body>
@@ -33,12 +35,17 @@
           </li>
         </ul>
       </nav>
-    </div>
-    <div class="icon">
-      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
-        <path fill-rule="evenodd" clip-rule="evenodd"
-              d="M28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14ZM18.6667 7.77778C18.6667 10.3551 16.5774 12.4444 14.0001 12.4444C11.4227 12.4444 9.33339 10.3551 9.33339 7.77778C9.33339 5.20045 11.4227 3.11111 14.0001 3.11111C16.5774 3.11111 18.6667 5.20045 18.6667 7.77778ZM19.4998 16.2781C20.9584 17.7367 21.7778 19.715 21.7778 21.7778H14L6.22225 21.7778C6.22225 19.715 7.0417 17.7367 8.50031 16.2781C9.95893 14.8194 11.9372 14 14 14C16.0628 14 18.0411 14.8194 19.4998 16.2781Z"/>
-      </svg>
+      <div class="icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14ZM18.6667 7.77778C18.6667 10.3551 16.5774 12.4444 14.0001 12.4444C11.4227 12.4444 9.33339 10.3551 9.33339 7.77778C9.33339 5.20045 11.4227 3.11111 14.0001 3.11111C16.5774 3.11111 18.6667 5.20045 18.6667 7.77778ZM19.4998 16.2781C20.9584 17.7367 21.7778 19.715 21.7778 21.7778H14L6.22225 21.7778C6.22225 19.715 7.0417 17.7367 8.50031 16.2781C9.95893 14.8194 11.9372 14 14 14C16.0628 14 18.0411 14.8194 19.4998 16.2781Z"/>
+        </svg>
+      </div>
+      <div class="menu__icon">
+        <span class="menu__icon-span"></span>
+        <span class="menu__icon-span"></span>
+        <span class="menu__icon-span"></span>
+      </div>
     </div>
   </div>
 </header>
@@ -64,9 +71,17 @@
         <img class="about__image-img" src="src/img/about/about-library-girl.jpeg" alt="Girl">
         <img class="about__image-img" src="src/img/about/about-library-statue.jpeg" alt="Statue">
         <img class="about__image-img" src="src/img/about/about-library-books.jpeg" alt="Books">
+        <img class="about__image-img" src="src/img/about/about-library-stairs.jpeg" alt="Stairs">
+        <img class="about__image-img" src="src/img/about/about-library-building.jpeg" alt="Building">
       </div>
     </div>
     <div class="about__carousel">
+      <div class="about__pagination">
+        <button type="button" class="about__button"></button>
+      </div>
+      <div class="about__pagination">
+        <button type="button" class="about__button"></button>
+      </div>
       <div class="about__pagination">
         <button type="button" class="about__button"></button>
       </div>
@@ -368,8 +383,8 @@
       <div class="coffee-shop__info">
         <h2 class="coffee-shop__info-title">Coffee shop</h2>
         <div class="coffee-shop__info-text">In our library, we have of cozy coffee shop, welcoming in customers with
-          frothy cappuccinos and friendly conversation. You can get a favorite book and read in coffee shop.
-          Our barista to cook you best coffee, and also you can try desserts from bakery.
+          frothy cappuccinos and friendly conversation. You can get a favorite book and read in coffee shop. Our barista
+          to cook you best coffee, and also you can try desserts from bakery.
         </div>
       </div>
       <div class="coffee-shop__menu">
