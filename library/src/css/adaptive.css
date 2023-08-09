@@ -148,7 +148,7 @@
   }
 }
 
-@media screen and (max-width: 767px){
+@media screen and (max-width: 767px) {
   .favorites__seasons {
     gap: 40px;
   }

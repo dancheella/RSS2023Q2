@@ -1,7 +1,9 @@
+//year
 const currentYear = new Date().getFullYear();
 const yearElement = document.querySelector('.footer__data');
 yearElement.textContent = currentYear.toString();
 
+//input
 const libraryCardInput = document.querySelectorAll('.library-card__info-form__input');
 
 libraryCardInput.forEach((input) => {
@@ -14,7 +16,6 @@ libraryCardInput.forEach((input) => {
 //burger
 const menu = document.querySelector('.menu__body');
 const menuBtn = document.querySelector('.menu__icon');
-
 const body = document.body;
 
 if (menu && menuBtn) {
