@@ -5,10 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="19ed5206-4382-4263-9e79-fa2bd560d49f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/img/about/3ea6b0b2b010ccfa19dfea1509de86de.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/img/about/image 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/img/about/image 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/img/about/image 3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/img/about/image 4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/img/about/image 5.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/css/adaptive.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/adaptive.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/img/about/about-library-building.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/about/about-library-building.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/scripts.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,33 +48,34 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;library-part2&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/denisdankin/RSS/stage 0/dancheella-JSFEPRESCHOOL2023Q2/library/src/fonts&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "library-part3",
+    "last_opened_file_path": "/Users/denisdankin/RSS/stage 0/dancheella-JSFEPRESCHOOL2023Q2/library/src/img/about",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/img/about" />
       <recent name="$PROJECT_DIR$/src/fonts" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/img/favorites/winter" />
       <recent name="$PROJECT_DIR$/src/img/about" />
+      <recent name="$PROJECT_DIR$/src/img/favorites/winter" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -104,7 +113,19 @@
       <workItem from="1691596623294" duration="41000" />
       <workItem from="1691596671463" duration="9553000" />
       <workItem from="1691617955167" duration="93000" />
-      <workItem from="1691618054337" duration="4424000" />
+      <workItem from="1691618054337" duration="5214000" />
+      <workItem from="1691677335148" duration="1000" />
+      <workItem from="1691677343117" duration="1000" />
+      <workItem from="1691737641461" duration="1199000" />
+      <workItem from="1691778352111" duration="2004000" />
+      <workItem from="1691965212998" duration="8000" />
+      <workItem from="1691965223684" duration="41000" />
+      <workItem from="1691965478659" duration="321000" />
+      <workItem from="1691965809084" duration="330000" />
+      <workItem from="1692034907964" duration="5274000" />
+      <workItem from="1692093081451" duration="472000" />
+      <workItem from="1692469091433" duration="13959000" />
+      <workItem from="1692533190978" duration="25833000" />
     </task>
     <servers />
   </component>

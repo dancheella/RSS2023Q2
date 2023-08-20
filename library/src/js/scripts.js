@@ -41,3 +41,89 @@ if (menu && menuBtn) {
     })
   })
 }
+
+// carosuel
+document.addEventListener("DOMContentLoaded", function () {
+  const carouselImages = document.querySelectorAll(".about__image-img");
+  const prevButton = document.querySelector(".prev");
+  const nextButton = document.querySelector(".next");
+
+  let currentIndex = 0;
+  let visibleImages = calculateVisibleImages();
+  let savedIndex = 0; // переменная для сохранения индекса
+
+  function calculateVisibleImages() {
+    const windowWidth = window.innerWidth;
+    if (windowWidth >= 1440) {
+      return 3;
+    } else if (windowWidth >= 1129) {
+      return 2;
+    } else {
+      return 1;
+    }
+  }
+
+  function updateCarousel() {
+    const maxIndex = carouselImages.length - visibleImages;
+    currentIndex = Math.min(currentIndex, maxIndex); // ограничение индекса, чтобы не выйти за пределы
+
+    prevButton.classList.toggle("disabled", currentIndex === 0);
+    nextButton.classList.toggle("disabled", currentIndex === maxIndex || maxIndex < 0);
+
+    carouselImages.forEach((image, index) => {
+      if (index >= currentIndex && index < currentIndex + visibleImages) {
+        image.style.display = "flex";
+      } else {
+        image.style.display = "none";
+      }
+    });
+
+    const activeButton = document.querySelector(".about__pagination.active");
+    if (activeButton) {
+      activeButton.classList.remove("active");
+    }
+    const paginationButtons = document.querySelectorAll(".about__pagination");
+    paginationButtons[currentIndex].classList.add("active");
+  }
+
+  function navigateCarousel(direction) {
+    if (
+      (direction === "prev" && currentIndex > 0) ||
+      (direction === "next" &&
+        currentIndex < carouselImages.length - visibleImages)
+    ) {
+      currentIndex += direction === "prev" ? -1 : 1;
+      updateCarousel();
+    }
+  }
+
+  prevButton.addEventListener("click", () => {
+    navigateCarousel("prev");
+  });
+
+  nextButton.addEventListener("click", () => {
+    navigateCarousel("next");
+  });
+
+  const paginationButtons = document.querySelectorAll(".about__pagination");
+  paginationButtons.forEach((button, index) => {
+    button.addEventListener("click", () => {
+      if (index !== currentIndex) {
+        savedIndex = index; // сохранение индекса при клике
+        currentIndex = index;
+        updateCarousel();
+      }
+    });
+  });
+
+  window.addEventListener("resize", () => {
+    const newVisibleImages = calculateVisibleImages();
+    if (newVisibleImages !== visibleImages) {
+      visibleImages = newVisibleImages;
+      currentIndex = savedIndex;
+      updateCarousel();
+    }
+  });
+
+  updateCarousel();
+});
