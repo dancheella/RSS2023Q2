@@ -42,16 +42,18 @@ if (menu && menuBtn) {
   })
 }
 
-// carosuel
+//carousel
 document.addEventListener("DOMContentLoaded", function () {
-  const carouselImages = document.querySelectorAll(".about__image-img");
+  const aboutImage = document.querySelectorAll(".about__image");
   const prevButton = document.querySelector(".prev");
   const nextButton = document.querySelector(".next");
+  const paginationButtons = document.querySelectorAll(".about__pagination");
 
-  let currentIndex = 0;
+  let currentIndex = 0; // переменная для текущего индекса
   let visibleImages = calculateVisibleImages();
   let savedIndex = 0; // переменная для сохранения индекса
 
+  // количество видимых изображений
   function calculateVisibleImages() {
     const windowWidth = window.innerWidth;
     if (windowWidth >= 1440) {
@@ -63,40 +65,39 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  // обновление карусели
   function updateCarousel() {
-    const maxIndex = carouselImages.length - visibleImages;
+    const maxIndex = aboutImage.length - visibleImages; // максимальный индекс, чтобы не выйти за границы доступных изображений
     currentIndex = Math.min(currentIndex, maxIndex); // ограничение индекса, чтобы не выйти за пределы
 
     prevButton.classList.toggle("disabled", currentIndex === 0);
     nextButton.classList.toggle("disabled", currentIndex === maxIndex || maxIndex < 0);
 
-    carouselImages.forEach((image, index) => {
-      if (index >= currentIndex && index < currentIndex + visibleImages) {
-        image.style.display = "flex";
+    const paginationButtons = document.querySelectorAll(".about__pagination");
+
+    // обновление активной точки пагинации на основе текущего индекса
+    paginationButtons.forEach((button, index) => {
+      if (index === currentIndex) {
+        button.classList.add("active");
       } else {
-        image.style.display = "none";
+        button.classList.remove("active");
       }
     });
 
-    const activeButton = document.querySelector(".about__pagination.active");
-    if (activeButton) {
-      activeButton.classList.remove("active");
-    }
-    const paginationButtons = document.querySelectorAll(".about__pagination");
-    paginationButtons[currentIndex].classList.add("active");
+    // сдвиг контейнера
+    const imageContainer = document.querySelector(".about__image-container");
+    const offset = currentIndex * -475;
+    imageContainer.style.transform = `translateX(${offset}px)`;
   }
 
   function navigateCarousel(direction) {
-    if (
-      (direction === "prev" && currentIndex > 0) ||
-      (direction === "next" &&
-        currentIndex < carouselImages.length - visibleImages)
-    ) {
-      currentIndex += direction === "prev" ? -1 : 1;
+    if ((direction === "prev" && currentIndex > 0) || (direction === "next" && currentIndex < aboutImage.length - visibleImages)) {
+      currentIndex += direction === "prev" ? -1 : 1; // изменнение индекса в зависимости от направления
       updateCarousel();
     }
   }
 
+  // обработчики событий на кнопки
   prevButton.addEventListener("click", () => {
     navigateCarousel("prev");
   });
@@ -105,25 +106,25 @@ document.addEventListener("DOMContentLoaded", function () {
     navigateCarousel("next");
   });
 
-  const paginationButtons = document.querySelectorAll(".about__pagination");
+  // проход по всем точкам пагинации
   paginationButtons.forEach((button, index) => {
     button.addEventListener("click", () => {
       if (index !== currentIndex) {
-        savedIndex = index; // сохранение индекса при клике
-        currentIndex = index;
-        updateCarousel();
+        savedIndex = index; // сохранение индекса
+        currentIndex = index; // чтобы установить текущий индекс карусели равным индексу кнопки, чтобы перейти к соответствующему изображению
+        updateCarousel(); // обновление состояния карусели
       }
     });
   });
 
   window.addEventListener("resize", () => {
-    const newVisibleImages = calculateVisibleImages();
+    const newVisibleImages = calculateVisibleImages(); // вычисление нового количества видимых изображений при изменении размера окна
     if (newVisibleImages !== visibleImages) {
-      visibleImages = newVisibleImages;
-      currentIndex = savedIndex;
-      updateCarousel();
+      visibleImages = newVisibleImages; // если количество видимых изображений изменилось, обновляем переменную
+      currentIndex = savedIndex; // восстановление savedIndex, чтобы сохранить текущую позицию карусели
+      updateCarousel(); // обновление состояния карусели
     }
   });
 
-  updateCarousel();
+  updateCarousel(); // вызов обеспечивает начальный вид карусели, даже до того как событие DOMContentLoaded будет выполнено
 });

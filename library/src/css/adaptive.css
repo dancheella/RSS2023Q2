@@ -1,9 +1,12 @@
 @media screen and (max-width: 1439px) {
   .about__carousel {
+    max-width: 950px;
+  }
+
+  .about__carousel-container {
     display: flex;
     align-items: center;
     gap: 58px;
-    user-select: none;
   }
 
   .about__image-svg {
@@ -15,7 +18,7 @@
 
   .disabled {
     cursor: not-allowed;
-    opacity: 0.3;
+    opacity: 0.2;
   }
 
   .about__image-svg:hover path {
@@ -24,13 +27,6 @@
 
   .about__pagination:nth-child(4) {
     display: flex;
-  }
-
-  .favorites__items-winter,
-  .favorites__items-spring,
-  .favorites__items-summer,
-  .favorites__items-autumn {
-    flex-direction: column;
   }
 
   .contacts__info {
@@ -45,7 +41,25 @@
   }
 }
 
-@media screen and (max-width: 1162px) {
+@media screen and (max-width: 1259px) {
+  .favorites__items-winter,
+  .favorites__items-spring,
+  .favorites__items-summer,
+  .favorites__items-autumn {
+    flex-direction: column;
+  }
+
+}
+
+@media screen and (max-width: 1159px) {
+  .about__carousel {
+    max-width: 450px;
+  }
+
+  .about__pagination:nth-child(5) {
+    display: flex;
+  }
+
   .library-card__info {
     flex-direction: column;
     align-items: center;
@@ -60,12 +74,6 @@
   .library-card__info-registration__description {
     text-align: center;
     max-width: 600px;
-  }
-}
-
-@media screen and (max-width: 1128px) {
-  .about__pagination:nth-child(5) {
-    display: flex;
   }
 }
 
@@ -158,7 +166,7 @@
     text-align: center;
   }
 
-  .about__image {
+  .about__image-container {
     margin-bottom: 20px;
   }
 

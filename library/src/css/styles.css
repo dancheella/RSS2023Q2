@@ -217,32 +217,23 @@ body {
   margin-bottom: 20px;
 }
 
-.about__image {
+.about__carousel {
+  max-width: 1400px;
+  overflow: hidden;
+}
+
+.about__image-container {
   display: flex;
   align-items: center;
-  /*flex-wrap: wrap;*/
   font-size: 0;
   gap: 25px;
   margin-bottom: 35px;
+  transition: transform 0.3s ease-in-out;
+
 }
 
 .about__image-svg {
   display: none;
-}
-
-.about__image-img {
-  flex: 1;
-  object-fit: cover;
-  width: 450px;
-  height: 560px;
-  transition: all 0.3s linear;
-}
-
-.about__image-img:hover,
-.favorites__item-image__picture:hover {
-  transform: scale(1.05);
-  filter: drop-shadow(0 0 5px #0C0C0E);
-  transform-origin: center;
 }
 
 .about__nav {
@@ -514,6 +505,12 @@ body {
   height: 300px;
   object-fit: cover;
   transition: all 0.3s linear;
+}
+
+.favorites__item-image__picture:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 5px #0C0C0E);
+  transform-origin: center;
 }
 
 .coffee-shop__info-title::after {
@@ -898,4 +895,3 @@ body {
   color: #FFF;
   transition: all 0.3s linear;
 }
-
