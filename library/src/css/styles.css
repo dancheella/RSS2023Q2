@@ -274,7 +274,7 @@ body {
   background: #8E8E8E;
 }
 
-.about__pagination.active .about__button{
+.about__pagination.active .about__button {
   background: #BB945F;
   cursor: not-allowed;
 }
@@ -371,6 +371,28 @@ body {
   text-shadow: 1px 0 0 currentColor;
 }
 
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.favorites__items {
+  position: relative;
+}
+
 .favorites__items-winter,
 .favorites__items-spring,
 .favorites__items-summer,
@@ -380,12 +402,14 @@ body {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 40px;
+  animation: fadeIn 1s ease-in-out forwards;
 }
 
-.favorites__items-spring,
-.favorites__items-summer,
-.favorites__items-autumn {
-  display: none;
+.hidden {
+  position: absolute;
+  top: 0;
+  right: 0;
+  animation: fadeOut 1s ease-in-out forwards;
 }
 
 .favorites__item {
@@ -487,11 +511,11 @@ body {
   color: #FFF;
 }
 
-.own-button {
-  border: 1px solid #BB945F;
-  color: #BB945F;
-  cursor: not-allowed;
-}
+/*.own-button {*/
+/*  border: 1px solid #BB945F;*/
+/*  color: #BB945F;*/
+/*  cursor: not-allowed;*/
+/*}*/
 
 .favorites__item-image {
   position: absolute;

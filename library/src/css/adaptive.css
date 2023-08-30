@@ -48,7 +48,6 @@
   .favorites__items-autumn {
     flex-direction: column;
   }
-
 }
 
 @media screen and (max-width: 1159px) {
@@ -80,10 +79,6 @@
 @media screen and (max-width: 1024px) {
   body.lock {
     overflow: hidden;
-  }
-
-  .icon {
-    z-index: 1;
   }
 
   .menu__icon {

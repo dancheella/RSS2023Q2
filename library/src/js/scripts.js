@@ -128,3 +128,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
   updateCarousel(); // вызов обеспечивает начальный вид карусели, даже до того как событие DOMContentLoaded будет выполнено
 });
+
+//carousel Favorite
+const inputButtonsSeasons = document.querySelectorAll('.favorites__seasons input');
+const seasonsYears = {
+  winter: document.querySelector('.favorites__items-winter'),
+  spring: document.querySelector('.favorites__items-spring'),
+  summer: document.querySelector('.favorites__items-summer'),
+  autumn: document.querySelector('.favorites__items-autumn'),
+};
+
+function changeSeason(selectedSeason) {
+  Object.keys(seasonsYears).forEach(season => {
+    if (season !== selectedSeason) {
+      seasonsYears[season].classList.add('hidden');
+    } else {
+      seasonsYears[season].classList.remove('hidden');
+    }
+  });
+}
+
+function inputClick(e) {
+  const selectedSeason = e.target.id;
+  changeSeason(selectedSeason);
+}
+
+inputButtonsSeasons.forEach(button => {
+  button.addEventListener('change', inputClick);
+});
