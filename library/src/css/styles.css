@@ -452,14 +452,14 @@ body {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 40px;
-  animation: fadeIn 1s ease-in-out forwards;
+  animation: fadeIn 0.5s ease-in-out forwards;
 }
 
 .hidden {
   position: absolute;
   top: 0;
   right: 0;
-  animation: fadeOut 1s ease-in-out forwards;
+  animation: fadeOut 0.5s ease-in-out forwards;
 }
 
 .favorites__item {
