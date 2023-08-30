@@ -156,3 +156,21 @@ function inputClick(e) {
 inputButtonsSeasons.forEach(button => {
   button.addEventListener('change', inputClick);
 });
+
+//menu authorization
+const icon = document.querySelector('.icon');
+const userMenu = document.querySelector('.icon__user-action');
+
+icon.addEventListener('click', () => {
+  userMenu.classList.toggle('active');
+  menu.classList.remove('active');
+  menuBtn.classList.remove('active');
+  body.classList.toggle('lock');
+});
+
+document.addEventListener('click', e => {
+  if (!userMenu.contains(e.target) && !icon.contains(e.target)) {
+    userMenu.classList.remove('active');
+    body.classList.remove('lock');
+  }
+});

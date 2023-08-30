@@ -112,10 +112,60 @@ body {
 }
 
 .icon {
+  position: relative;
   margin-top: 2px;
   cursor: pointer;
   transition: all 0.3s linear;
   fill: white;
+}
+
+.icon__user-action {
+  display: none;
+}
+
+.icon__user-action.active {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  top: 90px;
+  right: 20px;
+  width: 80px;
+  height: 115px;
+  background: #FFF;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.icon__user-action::after {
+  content: '';
+  position: absolute;
+  top: 29px;
+  width: 40px;
+  height: 1px;
+  background: #BB945F;
+}
+
+.icon__title {
+  color: #000;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  margin-bottom: 20px;
+}
+
+
+.icon__login-profile,
+.icon__register-logout {
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.icon__login-profile {
+  margin-bottom: 10px;
 }
 
 .icon:hover,
