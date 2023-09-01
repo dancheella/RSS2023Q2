@@ -174,3 +174,86 @@ document.addEventListener('click', e => {
     body.classList.remove('lock');
   }
 });
+
+//modal register
+const modal = document.querySelector('.modal');
+const modalRegister = document.querySelector('.modal__register');
+const modalRegisterClose = document.querySelector('.modal__register__close');
+const iconRegisterLogout = document.querySelector('.icon__register-logout');
+const libraryCardInfoRegistrationButton = document.querySelector('.library-card__info-registration__button');
+
+function toggleModalAndRegister() {
+  userMenu.classList.toggle('active');
+  modal.classList.toggle('open');
+  modalRegister.classList.toggle('open');
+  body.classList.toggle('lock');
+}
+
+modal.addEventListener('click', (event) => {
+  if (!event.target.closest('.modal__register')) {
+    toggleModalAndRegister();
+  }
+});
+
+iconRegisterLogout.addEventListener('click', toggleModalAndRegister);
+modalRegisterClose.addEventListener('click', toggleModalAndRegister);
+libraryCardInfoRegistrationButton.addEventListener('click', toggleModalAndRegister);
+
+
+//validate
+let signUpButton = document.getElementById('sign-up');
+
+function validateForm() {
+  let firstName = document.getElementById('firstName').value;
+  let lastName = document.getElementById('lastName').value;
+  let email = document.getElementById('email').value;
+  let password = document.getElementById('password').value;
+
+  function validateInput(input, fieldName) {
+    if (input === '') {
+      alert(`Пожалуйста, введите ${fieldName}!`);
+      return false;
+    } else if (!/^[A-ZА-Я]/.test(input)) {
+      alert(`${fieldName} должно начинаться с заглавной буквы!`);
+      return false;
+    }
+    return true;
+  }
+
+  if (!validateInput(firstName, 'Имя')) {
+    return false;
+  }
+
+  if (!validateInput(lastName, 'Фамилия')) {
+    return false;
+  }
+
+  let emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+  if (email === '') {
+    alert('Пожалуйста, введите email!');
+    return false;
+  } else {
+    if (!emailPattern.test(email)) {
+      alert('Пожалуйста, введите корректный email!');
+      return false;
+    }
+  }
+
+  if (password === '') {
+    alert('Пожалуйста, введите пароль!');
+    return false;
+  } else {
+    if (!/^(?=.*[A-ZА-Я])(?=.*[!@#$%^&*]).{8,}$/.test(password)) {
+      alert('Пароль должен начинаться с заглавной буквы, содержать хотя бы один специальный символ и быть не короче 8 символов!');
+      return false;
+    }
+  }
+
+  return true;
+}
+
+signUpButton.addEventListener('click', function (event) {
+  if (!validateForm()) {
+    event.preventDefault();
+  }
+});

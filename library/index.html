@@ -55,6 +55,31 @@
   </div>
 </header>
 
+<div class="modal">
+  <div class="modal__body">
+    <div id="registerModal" class="modal__register">
+      <h2 class="modal__register-title">Register</h2>
+      <button class="modal__register__close"></button>
+      <form id="registerForm" class="modal__register-form">
+        <label for="firstName">First name:</label>
+        <input type="text" id="firstName" required>
+
+        <label for="lastName">Last name:</label>
+        <input type="text" id="lastName" required>
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" required>
+
+        <button type="submit" id="sign-up">Sign Up</button>
+      </form>
+      <p class="modal__register-question">Already have an account? <span id="loginLink">Login</span></p>
+    </div>
+  </div>
+</div>
+
 <main>
   <section class="welcome" id="welcome">
     <div class="container welcome__container">
