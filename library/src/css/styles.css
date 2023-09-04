@@ -119,6 +119,18 @@ body {
   fill: white;
 }
 
+.icon-user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  color: #BB945F;
+  background: #FFF;
+  border-radius: 50%;
+  margin-top: -2px;
+}
+
 .icon__user-action {
   display: none;
 }

@@ -249,6 +249,14 @@ function validateForm() {
     }
   }
 
+  let userData = {
+    firstName: firstName,
+    lastName: lastName,
+    email: email,
+    password: password,
+  };
+  localStorage.setItem('userData', JSON.stringify(userData));
+
   return true;
 }
 
@@ -257,3 +265,11 @@ signUpButton.addEventListener('click', function (event) {
     event.preventDefault();
   }
 });
+
+let userData = JSON.parse(localStorage.getItem('userData'));
+
+if (userData) {
+  let userIcon = document.getElementById('userIcon');
+  userIcon.textContent = (userData.firstName[0] + userData.lastName[0]).toUpperCase();
+  userIcon.classList.add('icon-user');
+}
