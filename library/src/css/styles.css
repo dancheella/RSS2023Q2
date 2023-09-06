@@ -142,10 +142,9 @@ body {
   position: absolute;
   top: 90px;
   right: 20px;
-  width: 80px;
   height: 115px;
   background: #FFF;
-  padding: 5px;
+  padding: 5px 11px 20px;
   box-sizing: border-box;
 }
 
@@ -158,18 +157,19 @@ body {
   background: #BB945F;
 }
 
-.icon__title {
+.icon__title,
+.icon__card {
   color: #000;
   font-size: 15px;
-  font-style: normal;
-  font-weight: 700;
+  font-family: 'InterBold', sans-serif;
   line-height: 20px;
   margin-bottom: 20px;
 }
 
-
 .icon__login-profile,
-.icon__register-logout {
+.icon__register-logout,
+.icon__my-profile,
+.icon__logout {
   font-size: 15px;
   font-style: normal;
   font-weight: 400;
@@ -177,7 +177,8 @@ body {
   cursor: pointer;
 }
 
-.icon__login-profile {
+.icon__login-profile,
+.icon__my-profile {
   margin-bottom: 10px;
 }
 

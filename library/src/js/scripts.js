@@ -258,6 +258,18 @@ function validateForm() {
   };
   localStorage.setItem('userData', JSON.stringify(userData));
 
+  // генерация случайного девятизначного числа
+  let randomNumber = Math.floor(Math.random() * 900000000) + 100000000;
+
+  // Преобразовать число в 16-ричное число
+  let cardNumber = randomNumber.toString(16).toUpperCase();
+
+  while (cardNumber.length < 9) {
+    cardNumber = "0" + cardNumber;
+  }
+
+  localStorage.setItem('cardNumber', cardNumber);
+
   toggleModalAndRegister();
   location.reload();
 }
@@ -273,6 +285,12 @@ if (localStorage.getItem('userData')) {
   let userIcon = document.getElementById('userIcon');
   userIcon.textContent = userData.firstName[0].toUpperCase() + userData.lastName[0].toUpperCase();
   userIcon.classList.add('icon-user');
+
+  let userAction = document.querySelector('.icon__user-action');
+  userAction.innerHTML = `<div class="icon__card">${localStorage.getItem('cardNumber')}</div>
+        <div class="icon__my-profile">My profile</div>
+        <div class="icon__logout">Log Out</div>
+      </div>`
 }
 
 //modal login
@@ -281,6 +299,7 @@ const modalLogin = document.querySelector('.modal__login');
 const loginClose = document.getElementById('login-close');
 const iconLoginProfile = document.querySelector('.icon__login-profile');
 const btnLogIn = document.getElementById('btn-log-in');
+const favoritesBtn = document.querySelectorAll('.favorites__item-button');
 
 function toggleModalAndLogin() {
   userMenu.classList.toggle('active');
@@ -298,6 +317,9 @@ modalLog.addEventListener('click', (event) => {
 iconLoginProfile.addEventListener('click', toggleModalAndLogin);
 loginClose.addEventListener('click', toggleModalAndLogin);
 btnLogIn.addEventListener('click', toggleModalAndLogin);
+favoritesBtn.forEach(button => {
+  button.addEventListener('click', toggleModalAndLogin);
+});
 
 // modal change
 const registerLink = document.getElementById('registerLink');
