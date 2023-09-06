@@ -54,27 +54,46 @@
   </div>
 </header>
 
-<div class="modal">
+<div class="modal" id="modal-reg">
   <div class="modal__body">
     <div id="registerModal" class="modal__register">
       <h2 class="modal__register-title">Register</h2>
-      <button class="modal__register__close"></button>
+      <button class="modal__register__close" id="register-close"></button>
       <form id="registerForm" class="modal__register-form">
-        <label for="firstName">First name:</label>
+        <label for="firstName">First name</label>
         <input type="text" id="firstName" required>
 
-        <label for="lastName">Last name:</label>
+        <label for="lastName">Last name</label>
         <input type="text" id="lastName" required>
 
-        <label for="email">E-mail:</label>
+        <label for="email">E-mail</label>
         <input type="email" id="email" required>
 
-        <label for="password">Password:</label>
+        <label for="password">Password</label>
         <input type="password" id="password" required>
 
         <button type="submit" id="sign-up">Sign Up</button>
       </form>
       <p class="modal__register-question">Already have an account? <span id="loginLink">Login</span></p>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="modal-log">
+  <div class="modal__body">
+    <div id="loginModal"  class="modal__login">
+      <button class="modal__register__close" id="login-close"></button>
+      <h2 class="modal__register-title">Login</h2>
+      <form id="loginForm" class="modal__register-form modal__login-form">
+        <label for="email-or-card">E-mail or readers card</label>
+        <input type="text" id="email-or-card" required>
+
+        <label for="password-login">Password</label>
+        <input type="text" id="password-login" required>
+
+        <button type="submit" id="login-in">Log In</button>
+      </form>
+      <p class="modal__register-question">Don’t have an account?<span id="registerLink">Register</span></p>
     </div>
   </div>
 </div>
@@ -552,8 +571,8 @@
             You will be able to see a reader card after logging into account or you can register a new account
           </div>
           <div class="library-card__info-registration__buttons">
-            <button type="button" class="library-card__info-registration__button">Sign Up</button>
-            <button type="button" class="library-card__info-registration__button">Log in</button>
+            <button type="button" class="library-card__info-registration__button" id="btn-sign-up">Sign Up</button>
+            <button type="button" class="library-card__info-registration__button" id="btn-log-in">Log in</button>
           </div>
         </div>
       </div>

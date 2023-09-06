@@ -199,11 +199,11 @@ body {
   visibility: hidden;
   overflow-y: auto;
   overflow-x: hidden;
-  transition: all 0.5s ease 0s;
+  transition: all 0.2s ease 0s;
   z-index: 1;
 }
 
-.modal.open {
+.modal.open, .modal__log.open {
   opacity: 1;
   visibility: visible;
 }
@@ -218,8 +218,8 @@ body {
 .modal__register {
   position: relative;
   opacity: 0;
-  transition: all 0.7s ease 0s;
-  transform: perspective(900px) translate(0px, -100%) rotateX(45deg);
+  transition: all 0.2s linear;
+  transform: perspective(500px) translate(0px, -100%) rotateX(45deg);
   width: 250px;
   height: 382px;
   background: #FFF;
@@ -227,10 +227,10 @@ body {
   box-sizing: border-box;
 }
 
-.modal__register.open {
-  transform: perspective(900px) translate(0px, 0) rotateX(0deg);
+.modal__register.open, .modal__login.open {
+  transform: perspective(500px) translate(0px, 0) rotateX(0deg);
   opacity: 1;
-  transition: all .7s ease 0s;
+  transition: all 0.2s linear;
 }
 
 .modal__register-title {
@@ -256,7 +256,7 @@ body {
   border-radius: 100px;
   width: 18px;
   height: 18px;
-  transition: all 0.3s linear;
+  transition: all 0.2s linear;
   cursor: pointer;
 }
 
@@ -335,6 +335,23 @@ body {
   letter-spacing: 1px;
   text-decoration-line: underline;
   cursor: pointer;
+}
+
+.modal__login {
+  position: relative;
+  opacity: 0;
+  transition: all 0.2s linear;
+  transform: perspective(500px) translate(0px, -100%) rotateX(45deg);
+  width: 250px;
+  height: 262px;
+  background: #FFF;
+  padding: 20px 25px;
+  box-sizing: border-box;
+}
+
+.modal__login-form button {
+  padding: 8px 19px;
+  margin-top: 10px;
 }
 
 .icon:hover,

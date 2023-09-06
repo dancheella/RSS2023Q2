@@ -176,28 +176,28 @@ document.addEventListener('click', e => {
 });
 
 //modal register
-const modal = document.querySelector('.modal');
+const modalReg = document.getElementById('modal-reg');
 const modalRegister = document.querySelector('.modal__register');
-const modalRegisterClose = document.querySelector('.modal__register__close');
+const registerClose = document.getElementById('register-close');
 const iconRegisterLogout = document.querySelector('.icon__register-logout');
-const libraryCardInfoRegistrationButton = document.querySelector('.library-card__info-registration__button');
+const btnSignUp = document.getElementById('btn-sign-up');
 
 function toggleModalAndRegister() {
   userMenu.classList.toggle('active');
-  modal.classList.toggle('open');
+  modalReg.classList.toggle('open');
   modalRegister.classList.toggle('open');
   body.classList.toggle('lock');
 }
 
-modal.addEventListener('click', (event) => {
+modalReg.addEventListener('click', (event) => {
   if (!event.target.closest('.modal__register')) {
     toggleModalAndRegister();
   }
 });
 
 iconRegisterLogout.addEventListener('click', toggleModalAndRegister);
-modalRegisterClose.addEventListener('click', toggleModalAndRegister);
-libraryCardInfoRegistrationButton.addEventListener('click', toggleModalAndRegister);
+registerClose.addEventListener('click', toggleModalAndRegister);
+btnSignUp.addEventListener('click', toggleModalAndRegister);
 
 
 //validate
@@ -249,6 +249,7 @@ function validateForm() {
     }
   }
 
+  // localStorage
   let userData = {
     firstName: firstName,
     lastName: lastName,
@@ -257,7 +258,8 @@ function validateForm() {
   };
   localStorage.setItem('userData', JSON.stringify(userData));
 
-  return true;
+  toggleModalAndRegister();
+  location.reload();
 }
 
 signUpButton.addEventListener('click', function (event) {
@@ -266,10 +268,47 @@ signUpButton.addEventListener('click', function (event) {
   }
 });
 
-let userData = JSON.parse(localStorage.getItem('userData'));
-
-if (userData) {
+if (localStorage.getItem('userData')) {
+  let userData = JSON.parse(localStorage.getItem('userData'));
   let userIcon = document.getElementById('userIcon');
-  userIcon.textContent = (userData.firstName[0] + userData.lastName[0]).toUpperCase();
+  userIcon.textContent = userData.firstName[0].toUpperCase() + userData.lastName[0].toUpperCase();
   userIcon.classList.add('icon-user');
 }
+
+//modal login
+const modalLog = document.getElementById('modal-log');
+const modalLogin = document.querySelector('.modal__login');
+const loginClose = document.getElementById('login-close');
+const iconLoginProfile = document.querySelector('.icon__login-profile');
+const btnLogIn = document.getElementById('btn-log-in');
+
+function toggleModalAndLogin() {
+  userMenu.classList.toggle('active');
+  modalLog.classList.toggle('open');
+  modalLogin.classList.toggle('open');
+  body.classList.toggle('lock');
+}
+
+modalLog.addEventListener('click', (event) => {
+  if (!event.target.closest('.modal__login')) {
+    toggleModalAndLogin();
+  }
+});
+
+iconLoginProfile.addEventListener('click', toggleModalAndLogin);
+loginClose.addEventListener('click', toggleModalAndLogin);
+btnLogIn.addEventListener('click', toggleModalAndLogin);
+
+// modal change
+const registerLink = document.getElementById('registerLink');
+const loginLink = document.getElementById('loginLink');
+
+registerLink.addEventListener('click', () => {
+  toggleModalAndLogin();
+  toggleModalAndRegister();
+});
+
+loginLink.addEventListener('click', () => {
+  toggleModalAndRegister();
+  toggleModalAndLogin();
+});
