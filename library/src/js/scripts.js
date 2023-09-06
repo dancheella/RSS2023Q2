@@ -270,6 +270,7 @@ function validateForm() {
 
   localStorage.setItem('cardNumber', cardNumber);
 
+  visitCount();
   toggleModalAndRegister();
   location.reload();
 }
@@ -279,19 +280,6 @@ signUpButton.addEventListener('click', function (event) {
     event.preventDefault();
   }
 });
-
-if (localStorage.getItem('userData')) {
-  let userData = JSON.parse(localStorage.getItem('userData'));
-  let userIcon = document.getElementById('userIcon');
-  userIcon.textContent = userData.firstName[0].toUpperCase() + userData.lastName[0].toUpperCase();
-  userIcon.classList.add('icon-user');
-
-  let userAction = document.querySelector('.icon__user-action');
-  userAction.innerHTML = `<div class="icon__card">${localStorage.getItem('cardNumber')}</div>
-        <div class="icon__my-profile">My profile</div>
-        <div class="icon__logout">Log Out</div>
-      </div>`
-}
 
 //modal login
 const modalLog = document.getElementById('modal-log');
@@ -334,3 +322,89 @@ loginLink.addEventListener('click', () => {
   toggleModalAndRegister();
   toggleModalAndLogin();
 });
+
+if (localStorage.getItem('userData')) {
+  let userData = JSON.parse(localStorage.getItem('userData'));
+  let userIcon = document.getElementById('userIcon');
+
+  userIcon.textContent = userData.firstName[0].toUpperCase() + userData.lastName[0].toUpperCase();
+  userIcon.classList.add('icon-user');
+
+  // отображания полного имени пользователя
+  userIcon.title = `${userData.firstName} ${userData.lastName}`;
+
+  userMenu.innerHTML =
+    `<div class="icon__card">${localStorage.getItem('cardNumber')}</div>
+        <div class="icon__my-profile">My profile</div>
+        <div class="icon__logout">Log Out</div>
+    </div>`
+
+  let libraryCardInfoRegistration = document.querySelector('.library-card__info-registration');
+  libraryCardInfoRegistration.innerHTML =
+    `<h3 class="library-card__info-registration__title">Visit your profile</h3>
+     <div class="library-card__info-registration__description">
+         With a digital library card you get free access to the Library’s wide array of digital resources including e-books, databases, educational resources, and more.
+     </div>
+     <div class="library-card__info-registration__buttons">
+        <button type="button" class="library-card__info-registration__button" id="profile">Profile</button>
+     </div>`
+
+  let libraryCardInfoFind = document.querySelector('.library-card__info-find');
+  libraryCardInfoFind.innerHTML =
+    `<h3 class="library-card__info-title">Your Library card</h3>
+     <div class="library-card__info-bg">
+      <form class="library-card__info-form">
+        <h4 class="library-card__info-form__title">Brooklyn Public Library</h4>
+        <span class="library-card__info-form__input" id="fullName">${userData.firstName} ${userData.lastName}</span>
+        <span class="library-card__info-form__input" id="storageCardNumber">${localStorage.getItem('cardNumber')}</span>
+      </form>
+      <div class="library-card__info-form__icons">
+        <div class="library-card__info-form__icon">
+          <span class="library-card__info-form__icon-text">visits</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M10.5 10C13.2614 10 15.5 7.76142 15.5 5C15.5 2.23858 13.2614 0 10.5 0C7.73858 0 5.5 2.23858 5.5 5C5.5 7.76142 7.73858 10 10.5 10ZM17.5711 13.9289C19.4464 15.8043 20.5 18.3478 20.5 21H10.5L0.5 21C0.5 18.3478 1.55357 15.8043 3.42893 13.9289C5.3043 12.0536 7.84784 11 10.5 11C13.1522 11 15.6957 12.0536 17.5711 13.9289Z"
+                  fill="#BB945F"/>
+          </svg>
+          <span class="library-card__info-form__icon-count">${localStorage.getItem('visitCount')}</span>
+        </div>
+        <div class="library-card__info-form__icon">
+          <span class="library-card__info-form__icon-text">bonuses</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+            <path
+              d="M10 0L12.2249 3.31001L15.8779 2.00532L15.8249 6.05634L19.5106 7.25532L17.2 10.5L19.5106 13.7447L15.8249 14.9437L15.8779 18.9947L12.2249 17.69L10 21L7.77508 17.69L4.12215 18.9947L4.17508 14.9437L0.489435 13.7447L2.8 10.5L0.489435 7.25532L4.17508 6.05634L4.12215 2.00532L7.77508 3.31001L10 0Z"
+              fill="#BB945F"/>
+          </svg>
+          <span class="library-card__info-form__icon-count">1240</span>
+        </div>
+        <div class="library-card__info-form__icon">
+          <span class="library-card__info-form__icon-text">books</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+            <rect width="20" height="21" fill="#BB945F"/>
+            <rect x="2" width="1" height="19" fill="#826844"/>
+            <rect x="1" width="1" height="21" fill="white"/>
+          </svg>
+          <span class="library-card__info-form__icon-count">0</span>
+        </div>
+      </div>
+    </div>`
+
+  let libraryCardInfoBg = document.querySelector('.library-card__info-bg');
+  libraryCardInfoBg.style.gap = '15px';
+  libraryCardInfoBg.style.paddingBottom = '15px';
+}
+
+// счетчик books
+function visitCount() {
+  // Проверяем, есть ли уже счетчик в Local Storage, и инициализируем его, если не найден
+  let visitCount = localStorage.getItem('visitCount');
+  if (visitCount === null) {
+    visitCount = 0;
+  } else {
+    visitCount = parseInt(visitCount); // Преобразовываем значение из строки в число
+  }
+
+// Увеличиваем счетчик при каждом посещении
+  visitCount++;
+  localStorage.setItem('visitCount', visitCount.toString());
+}

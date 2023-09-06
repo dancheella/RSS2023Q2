@@ -140,9 +140,8 @@ body {
   align-items: center;
   flex-direction: column;
   position: absolute;
-  top: 90px;
-  right: 20px;
-  height: 115px;
+  top: 59px;
+  right: 0;
   background: #FFF;
   padding: 5px 11px 20px;
   box-sizing: border-box;
@@ -1006,6 +1005,7 @@ body {
   padding: 8px 20px;
   margin-bottom: 25px;
   outline: none;
+  color: #BB945F;
 }
 
 .library-card__info-form__input::placeholder {
@@ -1036,6 +1036,32 @@ body {
   align-items: flex-end;
   gap: 35px;
 }
+
+.library-card__info-form__icons {
+  display: flex;
+  gap: 35px;
+  align-items: center;
+  justify-content: center;
+}
+
+.library-card__info-form__icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.library-card__info-form__icon-text,
+.library-card__info-form__icon-count {
+  color: #000;
+  text-align: center;
+  font-size: 10px;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+  text-transform: capitalize;
+}
+
+
 
 .library-card__info-registration__title {
   color: #000;

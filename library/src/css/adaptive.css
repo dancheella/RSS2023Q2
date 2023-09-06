@@ -81,10 +81,6 @@
     overflow: hidden;
   }
 
-  .icon__user-action.active {
-    right: 104px;
-  }
-
   .menu__icon {
     display: block;
     width: 45px;
