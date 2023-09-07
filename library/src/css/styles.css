@@ -188,172 +188,6 @@ body {
   line-height: 20px;
 }
 
-.modal {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background-color: #29292999;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  visibility: hidden;
-  overflow-y: auto;
-  overflow-x: hidden;
-  transition: all 0.2s ease 0s;
-  z-index: 1;
-}
-
-.modal.open, .modal__log.open {
-  opacity: 1;
-  visibility: visible;
-}
-
-.modal__body {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.modal__register {
-  position: relative;
-  opacity: 0;
-  transition: all 0.2s linear;
-  transform: perspective(500px) translate(0px, -100%) rotateX(45deg);
-  width: 250px;
-  height: 382px;
-  background: #FFF;
-  padding: 20px 25px;
-  box-sizing: border-box;
-}
-
-.modal__register.open, .modal__login.open {
-  transform: perspective(500px) translate(0px, 0) rotateX(0deg);
-  opacity: 1;
-  transition: all 0.2s linear;
-}
-
-.modal__register-title {
-  color: #000;
-  text-align: center;
-  font-family: 'Forum', sans-serif;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 20px;
-  letter-spacing: 0.4px;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-}
-
-.modal__register__close {
-  position: absolute;
-  content: "";
-  background: transparent;
-  border: none;
-  right: 14px;
-  top: 14px;
-  border-radius: 100px;
-  width: 18px;
-  height: 18px;
-  transition: all 0.2s linear;
-  cursor: pointer;
-}
-
-.modal__register__close::before,
-.modal__register__close::after {
-  content: "";
-  position: absolute;
-  background: #000000;
-  top: 7px;
-  left: -1px;
-  width: 21px;
-  height: 3px;
-}
-
-.modal__register__close::before {
-  transform: rotate(45deg);
-}
-
-.modal__register__close::after {
-  transform: rotate(-45deg);
-}
-
-.modal__register-form {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 11px;
-  margin-bottom: 10px;
-}
-
-.modal__register-form label {
-  color: #000;
-  text-align: center;
-  font-size: 15px;
-  font-style: normal;
-  font-weight: 400;
-  letter-spacing: 0.3px;
-}
-
-.modal__register-form input {
-  border: 1px solid #BB945F;
-  width: 200px;
-  height: 20px;
-  outline: none;
-  box-sizing: border-box;
-}
-
-.modal__register-form button {
-  padding: 8px 14px;
-  color: #0C0C0E;
-  font-family: 'InterBold', sans-serif;
-  text-align: center;
-  font-size: 10px;
-  letter-spacing: 1px;
-  background: transparent;
-  border-radius: 2px;
-  border: 1px solid #0C0C0E;
-  margin-top: 9px;
-  cursor: pointer;
-}
-
-.modal__register-question {
-  text-shadow: 0 2px 3px rgba(255, 255, 255, 0.16);
-  font-family: 'Inter', sans-serif;
-  font-size: 10px;
-  font-weight: 400;
-  display: flex;
-  gap: 11px;
-}
-
-.modal__register-question span {
-  color: #0C0C0E;
-  font-size: 10px;
-  font-family: 'InterBold', sans-serif;
-  letter-spacing: 1px;
-  text-decoration-line: underline;
-  cursor: pointer;
-}
-
-.modal__login {
-  position: relative;
-  opacity: 0;
-  transition: all 0.2s linear;
-  transform: perspective(500px) translate(0px, -100%) rotateX(45deg);
-  width: 250px;
-  height: 262px;
-  background: #FFF;
-  padding: 20px 25px;
-  box-sizing: border-box;
-}
-
-.modal__login-form button {
-  padding: 8px 19px;
-  margin-top: 10px;
-}
-
 .icon:hover,
 .footer__list:hover path {
   fill: #BB945F;
@@ -1062,7 +896,6 @@ body {
 }
 
 
-
 .library-card__info-registration__title {
   color: #000;
   font-family: 'Forum', sans-serif;
@@ -1181,4 +1014,251 @@ body {
 .footer__github {
   color: #FFF;
   transition: all 0.3s linear;
+}
+
+.modal {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: #29292999;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transition: all 0.2s ease 0s;
+  z-index: 1;
+}
+
+.modal.open{
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal__body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.modal__register,
+.modal__login,
+.modal__buy {
+  position: relative;
+  opacity: 0;
+  transition: all 0.2s linear;
+  transform: perspective(500px) translate(0px, -100%) rotateX(45deg);
+  width: 250px;
+  height: 382px;
+  background: #FFF;
+  padding: 20px 25px;
+  box-sizing: border-box;
+}
+
+.modal__register.open, .modal__login.open, .modal__buy.open {
+  transform: perspective(500px) translate(0px, 0) rotateX(0deg);
+  opacity: 1;
+  transition: all 0.2s linear;
+}
+
+.modal__register-title,
+.modal__buy-title {
+  color: #000;
+  text-align: center;
+  font-family: 'Forum', sans-serif;
+  font-size: 20px;
+  line-height: 20px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.modal__register__close {
+  position: absolute;
+  content: "";
+  background: transparent;
+  border: none;
+  right: 14px;
+  top: 14px;
+  border-radius: 100px;
+  width: 18px;
+  height: 18px;
+  transition: all 0.2s linear;
+  cursor: pointer;
+}
+
+.modal__register__close::before,
+.modal__register__close::after {
+  content: "";
+  position: absolute;
+  background: #000000;
+  top: 7px;
+  left: -1px;
+  width: 21px;
+  height: 3px;
+}
+
+.modal__register__close::before {
+  transform: rotate(45deg);
+}
+
+.modal__register__close::after {
+  transform: rotate(-45deg);
+}
+
+.modal__register-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 11px;
+  margin-bottom: 10px;
+}
+
+.modal__register-form label {
+  color: #000;
+  text-align: center;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+}
+
+.modal__register-form input {
+  border: 1px solid #BB945F;
+  width: 200px;
+  height: 20px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.modal__register-form button {
+  padding: 8px 14px;
+  color: #0C0C0E;
+  font-family: 'InterBold', sans-serif;
+  text-align: center;
+  font-size: 10px;
+  letter-spacing: 1px;
+  background: transparent;
+  border-radius: 2px;
+  border: 1px solid #0C0C0E;
+  margin-top: 9px;
+  cursor: pointer;
+}
+
+.modal__register-question {
+  text-shadow: 0 2px 3px rgba(255, 255, 255, 0.16);
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  display: flex;
+  gap: 11px;
+}
+
+.modal__register-question span {
+  color: #0C0C0E;
+  font-size: 10px;
+  font-family: 'InterBold', sans-serif;
+  letter-spacing: 1px;
+  text-decoration-line: underline;
+  cursor: pointer;
+}
+
+.modal__login {
+  height: 262px;
+}
+
+.modal__login-form button {
+  padding: 8px 19px;
+  margin-top: 10px;
+}
+
+.modal__buy {
+  display: flex;
+  flex-direction: column;
+  width: 640px;
+  height: 100%;
+  padding: 0;
+}
+
+.modal__buy__close::before,
+.modal__buy__close::after {
+  background: #FFFFFF;
+  top: 17px;
+  left: -11px;
+}
+
+.modal__buy-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 640px;
+  height: 60px;
+  background: #0C0C0E;
+  color: #FFF;
+  font-size: 40px;
+  letter-spacing: 0.8px;
+  margin-bottom: 0;
+}
+
+.modal__buy-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 30px 35px 40px;
+  height: 480px;
+  box-sizing: border-box;
+}
+
+.modal__buy-form {
+  width: 200px;
+  justify-content: flex-start;
+}
+
+.modal__buy-description {
+  width: 330px;
+  color: #8E8E8E;
+  font-size: 15px;
+  line-height: 20px;
+  letter-spacing: 2px;
+  box-sizing: border-box;
+}
+
+.expiration-code {
+  display: flex;
+  gap: 10px;
+}
+
+#expiration-code-month,
+#expiration-code-year,
+#cvc {
+  width: 45px;
+}
+
+#cvc {
+  margin-bottom: 10px;
+}
+
+.modal__buy-price {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+}
+
+.modal__buy-form button {
+  padding: 9px 26px;
+}
+
+.price {
+  color: #0C0C0E;
+  font-family: 'InterBold', sans-serif;
+  font-size: 20px;
+  line-height: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: 10px;
 }

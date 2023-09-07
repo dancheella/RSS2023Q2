@@ -182,7 +182,7 @@ const registerClose = document.getElementById('register-close');
 const iconRegisterLogout = document.querySelector('.icon__register-logout');
 const btnSignUp = document.getElementById('btn-sign-up');
 
-function toggleModalAndRegister() {
+function modalRegisterPerson() {
   userMenu.classList.toggle('active');
   modalReg.classList.toggle('open');
   modalRegister.classList.toggle('open');
@@ -191,13 +191,13 @@ function toggleModalAndRegister() {
 
 modalReg.addEventListener('click', (event) => {
   if (!event.target.closest('.modal__register')) {
-    toggleModalAndRegister();
+    modalRegisterPerson();
   }
 });
 
-iconRegisterLogout.addEventListener('click', toggleModalAndRegister);
-registerClose.addEventListener('click', toggleModalAndRegister);
-btnSignUp.addEventListener('click', toggleModalAndRegister);
+iconRegisterLogout.addEventListener('click', modalRegisterPerson);
+registerClose.addEventListener('click', modalRegisterPerson);
+btnSignUp.addEventListener('click', modalRegisterPerson);
 
 
 //validate
@@ -249,7 +249,14 @@ function validateForm() {
     }
   }
 
-  // localStorage
+  saveUserDataToLocalStorage(firstName, lastName, email, password);
+  generateCardNumber();
+  visitCount();
+  modalRegisterPerson();
+  location.reload();
+}
+
+function saveUserDataToLocalStorage(firstName, lastName, email, password) {
   let userData = {
     firstName: firstName,
     lastName: lastName,
@@ -257,8 +264,10 @@ function validateForm() {
     password: password,
   };
   localStorage.setItem('userData', JSON.stringify(userData));
+}
 
-  // генерация случайного девятизначного числа
+function generateCardNumber() {
+  // Генерация случайного девятизначного числа
   let randomNumber = Math.floor(Math.random() * 900000000) + 100000000;
 
   // Преобразовать число в 16-ричное число
@@ -269,10 +278,6 @@ function validateForm() {
   }
 
   localStorage.setItem('cardNumber', cardNumber);
-
-  visitCount();
-  toggleModalAndRegister();
-  location.reload();
 }
 
 signUpButton.addEventListener('click', function (event) {
@@ -289,7 +294,7 @@ const iconLoginProfile = document.querySelector('.icon__login-profile');
 const btnLogIn = document.getElementById('btn-log-in');
 const favoritesBtn = document.querySelectorAll('.favorites__item-button');
 
-function toggleModalAndLogin() {
+function modalLoginPerson() {
   userMenu.classList.toggle('active');
   modalLog.classList.toggle('open');
   modalLogin.classList.toggle('open');
@@ -298,29 +303,29 @@ function toggleModalAndLogin() {
 
 modalLog.addEventListener('click', (event) => {
   if (!event.target.closest('.modal__login')) {
-    toggleModalAndLogin();
+    modalLoginPerson();
   }
 });
 
-iconLoginProfile.addEventListener('click', toggleModalAndLogin);
-loginClose.addEventListener('click', toggleModalAndLogin);
-btnLogIn.addEventListener('click', toggleModalAndLogin);
-favoritesBtn.forEach(button => {
-  button.addEventListener('click', toggleModalAndLogin);
-});
+iconLoginProfile.addEventListener('click', modalLoginPerson);
+loginClose.addEventListener('click', modalLoginPerson);
+btnLogIn.addEventListener('click', modalLoginPerson);
+// favoritesBtn.forEach(button => {
+//   button.addEventListener('click', modalLoginPerson);
+// });
 
 // modal change
 const registerLink = document.getElementById('registerLink');
 const loginLink = document.getElementById('loginLink');
 
 registerLink.addEventListener('click', () => {
-  toggleModalAndLogin();
-  toggleModalAndRegister();
+  modalLoginPerson();
+  modalRegisterPerson();
 });
 
 loginLink.addEventListener('click', () => {
-  toggleModalAndRegister();
-  toggleModalAndLogin();
+  modalRegisterPerson();
+  modalLoginPerson();
 });
 
 if (localStorage.getItem('userData')) {
@@ -396,15 +401,66 @@ if (localStorage.getItem('userData')) {
 
 // счетчик books
 function visitCount() {
-  // Проверяем, есть ли уже счетчик в Local Storage, и инициализируем его, если не найден
+  // проверка, есть ли уже счетчик в Local Storage, и инициализируем его, если не найден
   let visitCount = localStorage.getItem('visitCount');
   if (visitCount === null) {
     visitCount = 0;
   } else {
-    visitCount = parseInt(visitCount); // Преобразовываем значение из строки в число
+    visitCount = parseInt(visitCount); // преобразования значения из строки в число
   }
 
-// Увеличиваем счетчик при каждом посещении
+  // увеличнние счетчик при каждом посещении
   visitCount++;
   localStorage.setItem('visitCount', visitCount.toString());
 }
+
+//modal books
+const modalBook = document.getElementById('modal-book');
+const modalBuy = document.querySelector('.modal__buy');
+const buyClose = document.getElementById('buy-close');
+const btnBuy = document.getElementById('buy');
+
+function modalBookBuy() {
+  userMenu.classList.toggle('active');
+  modalBook.classList.toggle('open');
+  modalBuy.classList.toggle('open');
+  body.classList.toggle('lock');
+}
+
+modalBook.addEventListener('click', (event) => {
+  if (!event.target.closest('.modal__buy')) {
+    modalBookBuy();
+  }
+});
+
+buyClose.addEventListener('click', modalBookBuy);
+btnBuy.addEventListener('click', modalBookBuy);
+
+// выбор модального окна для покупки или логина
+favoritesBtn.forEach(button => {
+  button.addEventListener('click', () => {
+    if (localStorage.getItem('userData')) {
+      modalBookBuy(); // modal books
+    } else {
+      modalLoginPerson(); // modal login
+    }
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
+// const logoutButton = document.querySelector('.icon__logout');
+//
+//   logoutButton.addEventListener('click', ()=>{
+//       localStorage.removeItem('userData');
+//       location.reload();
+//     }
+//   );

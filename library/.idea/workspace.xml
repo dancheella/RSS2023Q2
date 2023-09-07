@@ -28,7 +28,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -137,6 +137,8 @@
       <workItem from="1693607275330" duration="11000" />
       <workItem from="1693848986480" duration="36000" />
       <workItem from="1693856452983" duration="21578000" />
+      <workItem from="1694009659047" duration="26066000" />
+      <workItem from="1694089339235" duration="5018000" />
     </task>
     <servers />
   </component>

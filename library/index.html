@@ -192,7 +192,7 @@
               <div class="favorites__item-description">A timely and revelatory new biography of Queen Elizabeth (and her
                 family) exploring how the Windsors have evolved and thrived as the modern world has changed around them.
               </div>
-              <button type="button" class="favorites__item-button" disabled>Buy</button>
+              <button type="button" class="favorites__item-button">Buy</button>
             </div>
             <div class="favorites__item-image">
               <img class="favorites__item-image__picture" src="src/img/favorites/winter/queen.jpeg"
@@ -255,7 +255,7 @@
                 her age with the promise to bring her to America. Her marriage is an opportunity for her family to
                 eventually immigrate. For fans of Isabel Allende and Julia Alvarez.
               </div>
-              <button type="button" class=" own-button" disabled>Buy</button>
+              <button type="button" class=" favorites__item-button">Buy</button>
             </div>
             <div class="favorites__item-image">
               <img class="favorites__item-image__picture" src="src/img/favorites/spring/cruz.jpeg"
@@ -322,7 +322,7 @@
                 tumultuous history of Hawaii as a Hawaiian woman gathers her four granddaughters together in an erotic
                 tale of villains and dreamers, queens and revolutionaries, lepers and healers.
               </div>
-              <button type="button" class=" own-button" disabled>Buy</button>
+              <button type="button" class=" favorites__item-button">Buy</button>
             </div>
             <div class="favorites__item-image">
               <img class="favorites__item-image__picture" src="src/img/favorites/summer/kiana.jpeg"
@@ -388,7 +388,7 @@
                 of codependency. A father and child experience the shared trauma of giving birth to gods from their
                 wounds.
               </div>
-              <button type="button" class=" own-button" disabled>Buy</button>
+              <button type="button" class=" favorites__item-button">Buy</button>
             </div>
             <div class="favorites__item-image">
               <img class="favorites__item-image__picture" src="src/img/favorites/autumn/slug.jpeg"
@@ -640,6 +640,49 @@
     </div>
   </div>
 </div>
+
+<div class="modal" id="modal-book">
+  <div class="modal__body">
+    <div id="buyModal" class="modal__buy">
+      <button class="modal__register__close modal__buy__close" id="buy-close"></button>
+      <h2 class="modal__buy-title">Buy a library card</h2>
+      <div class="modal__buy-container">
+        <form id="buyForm" class="modal__register-form modal__buy-form">
+          <label for="number-card">Bank card number</label>
+          <input type="text" id="number-card" required>
+
+          <label id="expiration-code">Expiration code</label>
+          <div class="expiration-code">
+            <input type="text" id="expiration-code-month" aria-labelledby="expiration-code" required>
+            <input type="text" id="expiration-code-year" aria-labelledby="expiration-code" required>
+          </div>
+
+          <label for="cvc">CVC</label>
+          <input type="text" id="cvc" required>
+
+          <label for="cardholder-name">Cardholder name</label>
+          <input type="text" id="cardholder-name" required>
+
+          <label for="postal-code">Postal code</label>
+          <input type="text" id="postal-code" required>
+
+          <label for="city">City / Town</label>
+          <input type="text" id="city" required>
+
+          <div class="modal__buy-price">
+            <button type="submit" id="buy">Buy</button>
+            <span class="price">$ 25.00</span>
+          </div>
+        </form>
+        <div class="modal__buy-description">If you are live, work, attend school, or pay property taxes in New York State, you can get a $25 digital
+          library card right now using this online form. Visitors to New York State can also use this form to apply for
+          a temporary card.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <script src="src/js/scripts.js"></script>
 <script src="src/js/index.js"></script>
