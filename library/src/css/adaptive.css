@@ -177,6 +177,11 @@
 
 @media screen and (max-width: 767px) {
   .favorites__seasons {
-    gap: 40px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.9);
+    gap: 50px;
+    width: 100%;
   }
 }

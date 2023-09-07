@@ -878,7 +878,8 @@ body {
   justify-content: center;
 }
 
-.library-card__info-form__icon {
+.library-card__info-form__icon,
+.library-card__info-icon {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -886,7 +887,9 @@ body {
 }
 
 .library-card__info-form__icon-text,
-.library-card__info-form__icon-count {
+.library-card__info-form__icon-count,
+.library-card__info-icon__text,
+.library-card__info-icon__count {
   color: #000;
   text-align: center;
   font-size: 10px;
@@ -1031,7 +1034,7 @@ body {
   z-index: 1;
 }
 
-.modal.open{
+.modal.open {
   opacity: 1;
   visibility: visible;
 }
@@ -1046,7 +1049,8 @@ body {
 
 .modal__register,
 .modal__login,
-.modal__buy {
+.modal__buy,
+.modal__profile {
   position: relative;
   opacity: 0;
   transition: all 0.2s linear;
@@ -1058,7 +1062,10 @@ body {
   box-sizing: border-box;
 }
 
-.modal__register.open, .modal__login.open, .modal__buy.open {
+.modal__register.open,
+.modal__login.open,
+.modal__buy.open,
+.modal__profile.open {
   transform: perspective(500px) translate(0px, 0) rotateX(0deg);
   opacity: 1;
   transition: all 0.2s linear;
@@ -1076,7 +1083,7 @@ body {
   margin-bottom: 20px;
 }
 
-.modal__register__close {
+.modal__register-close {
   position: absolute;
   content: "";
   background: transparent;
@@ -1090,8 +1097,8 @@ body {
   cursor: pointer;
 }
 
-.modal__register__close::before,
-.modal__register__close::after {
+.modal__register-close::before,
+.modal__register-close::after {
   content: "";
   position: absolute;
   background: #000000;
@@ -1101,11 +1108,11 @@ body {
   height: 3px;
 }
 
-.modal__register__close::before {
+.modal__register-close::before {
   transform: rotate(45deg);
 }
 
-.modal__register__close::after {
+.modal__register-close::after {
   transform: rotate(-45deg);
 }
 
@@ -1184,8 +1191,8 @@ body {
   padding: 0;
 }
 
-.modal__buy__close::before,
-.modal__buy__close::after {
+.modal__buy-close::before,
+.modal__buy-close::after {
   background: #FFFFFF;
   top: 17px;
   left: -11px;
@@ -1262,3 +1269,148 @@ body {
   text-transform: uppercase;
   margin-top: 10px;
 }
+
+.modal__profile {
+  display: flex;
+  width: 600px;
+  height: 100%;
+  padding: 0;
+}
+
+.modal__profile-close {
+  right: 24px;
+  top: 24px;
+}
+
+.modal__profile-user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  height: 400px;
+  background: #0C0C0E;
+  box-sizing: border-box;
+}
+
+.modal__profile-user__initials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  background: #FFF;
+  color: #BB945F;
+  font-size: 20px;
+  line-height: 20px;
+  text-transform: capitalize;
+  margin-bottom: 15px;
+  margin-top: 3px;
+}
+
+.modal__profile-user__fullName {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 120px;
+  padding: 5px 15px;
+  background: #FFF;
+  color: #000;
+  font-size: 20px;
+  line-height: 20px;
+  text-transform: capitalize;
+  white-space: normal;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.modal__profile-info {
+  display: flex;
+  flex-direction: column;
+  padding: 39px 20px;
+  width: 430px;
+  box-sizing: border-box;
+}
+
+.modal__profile-info__title {
+  color: #000;
+  font-family: 'Forum', sans-serif;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
+.library-card__info-icons {
+  display: flex;
+  gap: 21px;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
+
+.library-card__info-icon {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.library-card__info-icon__text {
+  font-size: 20px;
+}
+
+.modal__profile-info-subtitle {
+  color: #0C0C0E;
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 20px;
+  margin-bottom: 31px;
+}
+
+.modal__profile-info-books {
+  display: flex;
+  flex-direction: column;
+  margin-left: 29px;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.modal__profile-info-book {
+  color: #000;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+
+.modal__profile-info-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.modal__profile-info-card__title,
+.modal__profile-info-card__number {
+  color: #0C0C0E;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.modal__profile-info-card__number {
+  color: #BB945F;
+}
+
+/*!*временно*!*/
+/*.b {*/
+/*  opacity: 1;*/
+/*  visibility: visible;*/
+/*}*/
+
+/*.b1 {*/
+/*  opacity: 1;*/
+/*  transform: none;*/
+/*}*/

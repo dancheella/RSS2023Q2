@@ -397,6 +397,12 @@ if (localStorage.getItem('userData')) {
   let libraryCardInfoBg = document.querySelector('.library-card__info-bg');
   libraryCardInfoBg.style.gap = '15px';
   libraryCardInfoBg.style.paddingBottom = '15px';
+
+  let btnProfile = document.getElementById('profile');
+  btnProfile.addEventListener('click', modal__profile);
+
+  let iconMyProfile = document.querySelector('.icon__my-profile');
+  iconMyProfile.addEventListener('click', modal__profile);
 }
 
 // счетчик books
@@ -447,20 +453,22 @@ favoritesBtn.forEach(button => {
   });
 });
 
+//modal profile
+const modalProfile = document.getElementById('modal-profile');
+const modalProfileContainer = document.querySelector('.modal__profile');
+const profileClose = document.getElementById('profile-close');
 
+function modal__profile() {
+  userMenu.classList.toggle('active');
+  modalProfile.classList.toggle('open');
+  modalProfileContainer.classList.toggle('open');
+  body.classList.toggle('lock');
+}
 
+modalProfile.addEventListener('click', (event) => {
+  if (!event.target.closest('.modal__profile')) {
+    modal__profile();
+  }
+});
 
-
-
-
-
-
-
-
-// const logoutButton = document.querySelector('.icon__logout');
-//
-//   logoutButton.addEventListener('click', ()=>{
-//       localStorage.removeItem('userData');
-//       location.reload();
-//     }
-//   );
+profileClose.addEventListener('click', modal__profile);

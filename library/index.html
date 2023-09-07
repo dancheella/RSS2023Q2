@@ -601,7 +601,7 @@
   <div class="modal__body">
     <div id="registerModal" class="modal__register">
       <h2 class="modal__register-title">Register</h2>
-      <button class="modal__register__close" id="register-close"></button>
+      <button class="modal__register-close" id="register-close"></button>
       <form id="registerForm" class="modal__register-form">
         <label for="firstName">First name</label>
         <input type="text" id="firstName" required>
@@ -625,7 +625,7 @@
 <div class="modal" id="modal-log">
   <div class="modal__body">
     <div id="loginModal" class="modal__login">
-      <button class="modal__register__close" id="login-close"></button>
+      <button class="modal__register-close" id="login-close"></button>
       <h2 class="modal__register-title">Login</h2>
       <form id="loginForm" class="modal__register-form modal__login-form">
         <label for="email-or-card">E-mail or readers card</label>
@@ -644,7 +644,7 @@
 <div class="modal" id="modal-book">
   <div class="modal__body">
     <div id="buyModal" class="modal__buy">
-      <button class="modal__register__close modal__buy__close" id="buy-close"></button>
+      <button class="modal__register-close modal__buy-close" id="buy-close"></button>
       <h2 class="modal__buy-title">Buy a library card</h2>
       <div class="modal__buy-container">
         <form id="buyForm" class="modal__register-form modal__buy-form">
@@ -677,6 +677,63 @@
         <div class="modal__buy-description">If you are live, work, attend school, or pay property taxes in New York State, you can get a $25 digital
           library card right now using this online form. Visitors to New York State can also use this form to apply for
           a temporary card.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal b" id="modal-profile">
+  <div class="modal__body">
+    <div id="profileModal" class="modal__profile b1">
+      <button class="modal__register-close modal__profile-close" id="profile-close"></button>
+      <div class="modal__profile-user">
+        <div class="modal__profile-user__initials">JD</div>
+        <div class="modal__profile-user__fullName">John Doe</div>
+      </div>
+      <div class="modal__profile-info">
+        <h2 class="modal__profile-info__title">My profile</h2>
+        <div class="library-card__info-icons">
+          <div class="library-card__info-icon">
+            <span class="library-card__info-icon__text">visits</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M10.5 10C13.2614 10 15.5 7.76142 15.5 5C15.5 2.23858 13.2614 0 10.5 0C7.73858 0 5.5 2.23858 5.5 5C5.5 7.76142 7.73858 10 10.5 10ZM17.5711 13.9289C19.4464 15.8043 20.5 18.3478 20.5 21H10.5L0.5 21C0.5 18.3478 1.55357 15.8043 3.42893 13.9289C5.3043 12.0536 7.84784 11 10.5 11C13.1522 11 15.6957 12.0536 17.5711 13.9289Z"
+                    fill="#BB945F"/>
+            </svg>
+            <span class="library-card__info-icon__count">23</span>
+          </div>
+          <div class="library-card__info-icon">
+            <span class="library-card__info-icon__text">bonuses</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+              <path
+                d="M10 0L12.2249 3.31001L15.8779 2.00532L15.8249 6.05634L19.5106 7.25532L17.2 10.5L19.5106 13.7447L15.8249 14.9437L15.8779 18.9947L12.2249 17.69L10 21L7.77508 17.69L4.12215 18.9947L4.17508 14.9437L0.489435 13.7447L2.8 10.5L0.489435 7.25532L4.17508 6.05634L4.12215 2.00532L7.77508 3.31001L10 0Z"
+                fill="#BB945F"/>
+            </svg>
+            <span class="library-card__info-icon__count">1240</span>
+          </div>
+          <div class="library-card__info-icon">
+            <span class="library-card__info-icon__text">books</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+              <rect width="20" height="21" fill="#BB945F"/>
+              <rect x="2" width="1" height="19" fill="#826844"/>
+              <rect x="1" width="1" height="21" fill="white"/>
+            </svg>
+            <span class="library-card__info-icon__count">2</span>
+          </div>
+        </div>
+        <h3 class="modal__profile-info-subtitle">Rented books</h3>
+        <ul class="modal__profile-info-books">
+          <li class="modal__profile-info-book">The Last Queen, Clive Irving</li>
+          <li class="modal__profile-info-book">Dominicana, Angie Cruz</li>
+        </ul>
+        <div class="modal__profile-info-card">
+          <span class="modal__profile-info-card__title">Card number</span>
+          <span class="modal__profile-info-card__number">F00234030</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" viewBox="0 0 14 12" fill="none">
+            <rect x="2.46826" y="0.25" width="10.5917" height="9.5" rx="0.75" stroke="black" stroke-width="0.5"/>
+            <rect x="0.25" y="2.25" width="10.5917" height="9.5" rx="0.75" fill="white" stroke="black" stroke-width="0.5"/>
+          </svg>
         </div>
       </div>
     </div>
