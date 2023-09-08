@@ -8,7 +8,7 @@ const libraryCardInput = document.querySelectorAll('.library-card__info-form__in
 
 libraryCardInput.forEach((input) => {
   input.addEventListener('input', (e) => {
-    const regex = /[^A-Za-zА-Яа-яЁё0-9-]/g;
+    const regex = /[^A-Za-zА-Яа-яЁё0-9-\s]/g;
     e.target.value = e.target.value.replace(regex, '');
   });
 });
@@ -249,6 +249,9 @@ function validateForm() {
     }
   }
 
+  const accessToken = 'true';
+  localStorage.setItem('accessToken', accessToken);
+
   saveUserDataToLocalStorage(firstName, lastName, email, password);
   generateCardNumber();
   visitCount();
@@ -310,9 +313,6 @@ modalLog.addEventListener('click', (event) => {
 iconLoginProfile.addEventListener('click', modalLoginPerson);
 loginClose.addEventListener('click', modalLoginPerson);
 btnLogIn.addEventListener('click', modalLoginPerson);
-// favoritesBtn.forEach(button => {
-//   button.addEventListener('click', modalLoginPerson);
-// });
 
 // modal change
 const registerLink = document.getElementById('registerLink');
@@ -332,29 +332,47 @@ if (localStorage.getItem('userData')) {
   let userData = JSON.parse(localStorage.getItem('userData'));
   let userIcon = document.getElementById('userIcon');
 
-  userIcon.textContent = userData.firstName[0].toUpperCase() + userData.lastName[0].toUpperCase();
-  userIcon.classList.add('icon-user');
+  if (localStorage.getItem('accessToken') === 'true') {
+    userIcon.textContent = userData.firstName[0].toUpperCase() + userData.lastName[0].toUpperCase();
+    userIcon.classList.add('icon-user');
 
-  // отображания полного имени пользователя
-  userIcon.title = `${userData.firstName} ${userData.lastName}`;
+    // отображания полного имени пользователя
+    userIcon.title = `${userData.firstName} ${userData.lastName}`;
 
-  userMenu.innerHTML =
-    `<div class="icon__card">${localStorage.getItem('cardNumber')}</div>
+    userMenu.innerHTML =
+      `<div class="icon__card">${localStorage.getItem('cardNumber')}</div>
         <div class="icon__my-profile">My profile</div>
-        <div class="icon__logout">Log Out</div>
-    </div>`
+        <div class="icon__logout" id="logout-button">Log Out</div>
+      </div>`
 
-  let libraryCardInfoRegistration = document.querySelector('.library-card__info-registration');
-  libraryCardInfoRegistration.innerHTML =
-    `<h3 class="library-card__info-registration__title">Visit your profile</h3>
-     <div class="library-card__info-registration__description">
-         With a digital library card you get free access to the Library’s wide array of digital resources including e-books, databases, educational resources, and more.
-     </div>
-     <div class="library-card__info-registration__buttons">
+    let libraryCardInfoRegistration = document.querySelector('.library-card__info-registration');
+    libraryCardInfoRegistration.innerHTML =
+      `<h3 class="library-card__info-registration__title">Visit your profile</h3>
+       <div class="library-card__info-registration__description">
+          With a digital library card you get free access to the Library’s wide array of digital resources including e-books, databases, educational resources, and more.
+       </div>
+       <div class="library-card__info-registration__buttons">
         <button type="button" class="library-card__info-registration__button" id="profile">Profile</button>
-     </div>`
+       </div>`
 
-  let libraryCardInfoFind = document.querySelector('.library-card__info-find');
+    updateLibraryCardInfoFind(userData);
+
+    let btnProfile = document.getElementById('profile');
+    btnProfile.addEventListener('click', modal__profile);
+
+    let iconMyProfile = document.querySelector('.icon__my-profile');
+    iconMyProfile.addEventListener('click', modal__profile);
+
+    let logoutButton = document.getElementById('logout-button');
+    logoutButton.addEventListener('click', handleLogoutButtonClick);
+  }
+}
+
+let libraryCardInfoFind = document.querySelector('.library-card__info-find');
+
+// смена информации в блоке Digital Library Cards
+function updateLibraryCardInfoFind(userData) {
+
   libraryCardInfoFind.innerHTML =
     `<h3 class="library-card__info-title">Your Library card</h3>
      <div class="library-card__info-bg">
@@ -391,18 +409,12 @@ if (localStorage.getItem('userData')) {
           </svg>
           <span class="library-card__info-form__icon-count">0</span>
         </div>
-      </div>
+      </div>   
     </div>`
 
   let libraryCardInfoBg = document.querySelector('.library-card__info-bg');
   libraryCardInfoBg.style.gap = '15px';
   libraryCardInfoBg.style.paddingBottom = '15px';
-
-  let btnProfile = document.getElementById('profile');
-  btnProfile.addEventListener('click', modal__profile);
-
-  let iconMyProfile = document.querySelector('.icon__my-profile');
-  iconMyProfile.addEventListener('click', modal__profile);
 }
 
 // счетчик books
@@ -445,7 +457,7 @@ btnBuy.addEventListener('click', modalBookBuy);
 // выбор модального окна для покупки или логина
 favoritesBtn.forEach(button => {
   button.addEventListener('click', () => {
-    if (localStorage.getItem('userData')) {
+    if (localStorage.getItem('accessToken')) {
       modalBookBuy(); // modal books
     } else {
       modalLoginPerson(); // modal login
@@ -472,3 +484,33 @@ modalProfile.addEventListener('click', (event) => {
 });
 
 profileClose.addEventListener('click', modal__profile);
+
+function handleLogoutButtonClick() {
+  localStorage.removeItem('accessToken');
+  location.reload();
+}
+
+// вместо кнопки Check the card
+const originalHTML = libraryCardInfoFind.innerHTML;
+
+libraryCardInfoFind.addEventListener("click", function (event) {
+  const checkButton = event.target.closest(".library-card__info-find__button");
+  if (checkButton) {
+    const userData = JSON.parse(localStorage.getItem('userData'));
+    const storageFirstName = userData.firstName;
+    const storageLastName = userData.lastName;
+    const storageCardNumber = localStorage.getItem('cardNumber');
+    const nameInput = document.querySelector("input[name='name']");
+    const numberInput = document.querySelector("input[name='number']");
+
+    if ((nameInput.value === storageFirstName + ' ' + storageLastName || nameInput.value === storageFirstName || nameInput.value === storageLastName) && numberInput.value === storageCardNumber) {
+      updateLibraryCardInfoFind(userData);
+
+      setTimeout(() => {
+        libraryCardInfoFind.innerHTML = originalHTML;
+      }, 10000);
+    } else {
+      alert('Введенные данные не совпадают с данными в системе!');
+    }
+  }
+});
