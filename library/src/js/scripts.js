@@ -202,6 +202,12 @@ btnSignUp.addEventListener('click', modalRegisterPerson);
 
 //validate
 let signUpButton = document.getElementById('sign-up');
+const accessToken = 'true';
+const userData = JSON.parse(localStorage.getItem('userData'));
+
+function setAccessToken(token) {
+  localStorage.setItem('accessToken', token);
+}
 
 function validateForm() {
   let firstName = document.getElementById('firstName').value;
@@ -239,6 +245,13 @@ function validateForm() {
     }
   }
 
+  if (userData && userData.email === email) {
+    alert('Пользователь с таким email уже существует!');
+    return false;
+  } else {
+    localStorage.removeItem('visitCount');
+  }
+
   if (password === '') {
     alert('Пожалуйста, введите пароль!');
     return false;
@@ -249,9 +262,7 @@ function validateForm() {
     }
   }
 
-  const accessToken = 'true';
-  localStorage.setItem('accessToken', accessToken);
-
+  setAccessToken(accessToken);
   saveUserDataToLocalStorage(firstName, lastName, email, password);
   generateCardNumber();
   visitCount();
@@ -259,6 +270,7 @@ function validateForm() {
   location.reload();
 }
 
+// сохранение пользователя в localStorage
 function saveUserDataToLocalStorage(firstName, lastName, email, password) {
   let userData = {
     firstName: firstName,
@@ -269,11 +281,12 @@ function saveUserDataToLocalStorage(firstName, lastName, email, password) {
   localStorage.setItem('userData', JSON.stringify(userData));
 }
 
+// генерация числа
 function generateCardNumber() {
-  // Генерация случайного девятизначного числа
+  // генерация случайного девятизначного числа
   let randomNumber = Math.floor(Math.random() * 900000000) + 100000000;
 
-  // Преобразовать число в 16-ричное число
+  // преобразование число в 16-ричное число
   let cardNumber = randomNumber.toString(16).toUpperCase();
 
   while (cardNumber.length < 9) {
@@ -314,6 +327,38 @@ iconLoginProfile.addEventListener('click', modalLoginPerson);
 loginClose.addEventListener('click', modalLoginPerson);
 btnLogIn.addEventListener('click', modalLoginPerson);
 
+// валидация login
+const emailOrCardInput = document.getElementById('email-or-card');
+const passwordLoginInput = document.getElementById('password-login');
+const loginButton = document.getElementById('login-in');
+
+function validateEmailOrCard(input) {
+  const storageEmail = userData.email;
+  const storageCardNumber = localStorage.getItem('cardNumber');
+  return input.value === storageEmail || input.value === storageCardNumber;
+}
+
+function validatePassword(input) {
+  const storagePassword = userData.password;
+  return input.value === storagePassword;
+}
+
+loginButton.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  const isEmailOrCardValid = validateEmailOrCard(emailOrCardInput);
+  const isPasswordValid = validatePassword(passwordLoginInput);
+
+  if (isEmailOrCardValid && isPasswordValid) {
+    setAccessToken(accessToken);
+    visitCount();
+    initializeUser();
+    modalLoginPerson(false);
+  } else {
+    alert('Введите верные данные!');
+  }
+});
+
 // modal change
 const registerLink = document.getElementById('registerLink');
 const loginLink = document.getElementById('loginLink');
@@ -328,28 +373,29 @@ loginLink.addEventListener('click', () => {
   modalLoginPerson();
 });
 
-if (localStorage.getItem('userData')) {
-  let userData = JSON.parse(localStorage.getItem('userData'));
-  let userIcon = document.getElementById('userIcon');
+// изменение страницы после инициализации
+function initializeUser() {
+  if (localStorage.getItem('userData')) {
+    let userIcon = document.getElementById('userIcon');
 
-  if (localStorage.getItem('accessToken') === 'true') {
-    userIcon.textContent = userData.firstName[0].toUpperCase() + userData.lastName[0].toUpperCase();
-    userIcon.classList.add('icon-user');
+    if (localStorage.getItem('accessToken') === 'true') {
+      userIcon.textContent = userData.firstName[0].toUpperCase() + userData.lastName[0].toUpperCase();
+      userIcon.classList.add('icon-user');
 
-    // отображания полного имени пользователя
-    userIcon.title = `${userData.firstName} ${userData.lastName}`;
+      // отображания полного имени пользователя
+      userIcon.title = `${userData.firstName} ${userData.lastName}`;
 
-    userMenu.innerHTML =
-      `<div class="icon__card">${localStorage.getItem('cardNumber')}</div>
+      userMenu.innerHTML =
+        `<div class="icon__card">${localStorage.getItem('cardNumber')}</div>
         <div class="icon__my-profile">My profile</div>
         <div class="icon__logout" id="logout-button">Log Out</div>
       </div>`
 
-    updateLibraryCardInfoFind(userData);
+      updateLibraryCardInfoFind(userData);
 
-    let libraryCardInfoRegistration = document.querySelector('.library-card__info-registration');
-    libraryCardInfoRegistration.innerHTML =
-      `<h3 class="library-card__info-registration__title">Visit your profile</h3>
+      let libraryCardInfoRegistration = document.querySelector('.library-card__info-registration');
+      libraryCardInfoRegistration.innerHTML =
+        `<h3 class="library-card__info-registration__title">Visit your profile</h3>
        <div class="library-card__info-registration__description">
           With a digital library card you get free access to the Library’s wide array of digital resources including e-books, databases, educational resources, and more.
        </div>
@@ -357,18 +403,19 @@ if (localStorage.getItem('userData')) {
         <button type="button" class="library-card__info-registration__button" id="profile">Profile</button>
        </div>`
 
-    let btnProfile = document.getElementById('profile');
-    btnProfile.addEventListener('click', modal__profile);
+      let btnProfile = document.getElementById('profile');
+      btnProfile.addEventListener('click', modal__profile);
 
-    let iconMyProfile = document.querySelector('.icon__my-profile');
-    iconMyProfile.addEventListener('click', modal__profile);
+      let iconMyProfile = document.querySelector('.icon__my-profile');
+      iconMyProfile.addEventListener('click', modal__profile);
 
-    let logoutButton = document.getElementById('logout-button');
-    logoutButton.addEventListener('click', handleLogoutButtonClick);
+      let logoutButton = document.getElementById('logout-button');
+      logoutButton.addEventListener('click', handleLogoutButtonClick);
+    }
   }
 }
 
-
+initializeUser();
 
 // смена информации в блоке Digital Library Cards
 function updateLibraryCardInfoFind(userData) {
@@ -496,7 +543,6 @@ libraryCardInfoFind.addEventListener("click", function (event) {
   const originalHTML = libraryCardInfoFind.innerHTML;
   const checkButton = event.target.closest(".library-card__info-find__button");
   if (checkButton) {
-    const userData = JSON.parse(localStorage.getItem('userData'));
     const storageFirstName = userData.firstName;
     const storageLastName = userData.lastName;
     const storageCardNumber = localStorage.getItem('cardNumber');
