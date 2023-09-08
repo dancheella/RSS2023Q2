@@ -345,6 +345,8 @@ if (localStorage.getItem('userData')) {
         <div class="icon__logout" id="logout-button">Log Out</div>
       </div>`
 
+    updateLibraryCardInfoFind(userData);
+
     let libraryCardInfoRegistration = document.querySelector('.library-card__info-registration');
     libraryCardInfoRegistration.innerHTML =
       `<h3 class="library-card__info-registration__title">Visit your profile</h3>
@@ -354,8 +356,6 @@ if (localStorage.getItem('userData')) {
        <div class="library-card__info-registration__buttons">
         <button type="button" class="library-card__info-registration__button" id="profile">Profile</button>
        </div>`
-
-    updateLibraryCardInfoFind(userData);
 
     let btnProfile = document.getElementById('profile');
     btnProfile.addEventListener('click', modal__profile);
@@ -368,11 +368,11 @@ if (localStorage.getItem('userData')) {
   }
 }
 
-let libraryCardInfoFind = document.querySelector('.library-card__info-find');
+
 
 // смена информации в блоке Digital Library Cards
 function updateLibraryCardInfoFind(userData) {
-
+  let libraryCardInfoFind = document.querySelector('.library-card__info-find');
   libraryCardInfoFind.innerHTML =
     `<h3 class="library-card__info-title">Your Library card</h3>
      <div class="library-card__info-bg">
@@ -414,7 +414,7 @@ function updateLibraryCardInfoFind(userData) {
 
   let libraryCardInfoBg = document.querySelector('.library-card__info-bg');
   libraryCardInfoBg.style.gap = '15px';
-  libraryCardInfoBg.style.paddingBottom = '15px';
+  libraryCardInfoBg.style.paddingBottom = '14px';
 }
 
 // счетчик books
@@ -491,9 +491,9 @@ function handleLogoutButtonClick() {
 }
 
 // вместо кнопки Check the card
-const originalHTML = libraryCardInfoFind.innerHTML;
-
+let libraryCardInfoFind = document.querySelector('.library-card__info-find');
 libraryCardInfoFind.addEventListener("click", function (event) {
+  const originalHTML = libraryCardInfoFind.innerHTML;
   const checkButton = event.target.closest(".library-card__info-find__button");
   if (checkButton) {
     const userData = JSON.parse(localStorage.getItem('userData'));
