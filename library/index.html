@@ -36,10 +36,18 @@
         </ul>
       </nav>
       <div class="icon">
-        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
-          <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14ZM18.6667 7.77778C18.6667 10.3551 16.5774 12.4444 14.0001 12.4444C11.4227 12.4444 9.33339 10.3551 9.33339 7.77778C9.33339 5.20045 11.4227 3.11111 14.0001 3.11111C16.5774 3.11111 18.6667 5.20045 18.6667 7.77778ZM19.4998 16.2781C20.9584 17.7367 21.7778 19.715 21.7778 21.7778H14L6.22225 21.7778C6.22225 19.715 7.0417 17.7367 8.50031 16.2781C9.95893 14.8194 11.9372 14 14 14C16.0628 14 18.0411 14.8194 19.4998 16.2781Z"/>
-        </svg>
+        <div id="userIcon">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14ZM18.6667 7.77778C18.6667 10.3551 16.5774 12.4444 14.0001 12.4444C11.4227 12.4444 9.33339 10.3551 9.33339 7.77778C9.33339 5.20045 11.4227 3.11111 14.0001 3.11111C16.5774 3.11111 18.6667 5.20045 18.6667 7.77778ZM19.4998 16.2781C20.9584 17.7367 21.7778 19.715 21.7778 21.7778H14L6.22225 21.7778C6.22225 19.715 7.0417 17.7367 8.50031 16.2781C9.95893 14.8194 11.9372 14 14 14C16.0628 14 18.0411 14.8194 19.4998 16.2781Z"
+                  fill="white"/>
+          </svg>
+        </div>
+        <div class="icon__user-action">
+          <div class="icon__title">Profile</div>
+          <div class="icon__login-profile">Log In</div>
+          <div class="icon__register-logout">Register</div>
+        </div>
       </div>
       <div class="menu__icon">
         <span class="menu__icon-span"></span>
@@ -67,35 +75,43 @@
           coffee shop inside
         </div>
       </div>
-      <div class="about__image">
-        <svg class="about__image-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+
+      <div class="about__carousel-container">
+        <svg class="about__image-svg prev" xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25"
+             fill="none">
           <path d="M15 7.5L9 12.5L15 17.5" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-        <img class="about__image-img" src="src/img/about/about-library-girl.jpeg" alt="Girl">
-        <img class="about__image-img" src="src/img/about/about-library-statue.jpeg" alt="Statue">
-        <img class="about__image-img" src="src/img/about/about-library-books.jpeg" alt="Books">
-        <img class="about__image-img" src="src/img/about/about-library-stairs.jpeg" alt="Stairs">
-        <img class="about__image-img" src="src/img/about/about-library-building.jpeg" alt="Building">
-        <svg class="about__image-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+        <div class="about__carousel">
+          <div class="about__image-container">
+            <img class="about__image" src="src/img/about/image%201.png" alt="Girl">
+            <img class="about__image" src="src/img/about/image%202.png" alt="Statue">
+            <img class="about__image" src="src/img/about/image%203.png" alt="Books">
+            <img class="about__image" src="src/img/about/image%204.png" alt="Stairs">
+            <img class="about__image" src="src/img/about/image%205.png" alt="Building">
+          </div>
+        </div>
+        <svg class="about__image-svg next" xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25"
+             fill="none">
           <path d="M9 17.5L15 12.5L9 7.5" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </div>
-    </div>
-    <div class="about__carousel">
-      <div class="about__pagination">
-        <button type="button" class="about__button"></button>
-      </div>
-      <div class="about__pagination">
-        <button type="button" class="about__button"></button>
-      </div>
-      <div class="about__pagination">
-        <button type="button" class="about__button"></button>
-      </div>
-      <div class="about__pagination">
-        <button type="button" class="about__button"></button>
-      </div>
-      <div class="about__pagination">
-        <button type="button" class="about__button"></button>
+
+      <div class="about__nav">
+        <div class="about__pagination">
+          <button type="button" class="about__button"></button>
+        </div>
+        <div class="about__pagination">
+          <button type="button" class="about__button"></button>
+        </div>
+        <div class="about__pagination">
+          <button type="button" class="about__button"></button>
+        </div>
+        <div class="about__pagination">
+          <button type="button" class="about__button"></button>
+        </div>
+        <div class="about__pagination">
+          <button type="button" class="about__button"></button>
+        </div>
       </div>
     </div>
   </section>
@@ -176,7 +192,7 @@
               <div class="favorites__item-description">A timely and revelatory new biography of Queen Elizabeth (and her
                 family) exploring how the Windsors have evolved and thrived as the modern world has changed around them.
               </div>
-              <button type="button" class=" own-button" disabled>Own</button>
+              <button type="button" class="favorites__item-button">Buy</button>
             </div>
             <div class="favorites__item-image">
               <img class="favorites__item-image__picture" src="src/img/favorites/winter/queen.jpeg"
@@ -184,7 +200,7 @@
             </div>
           </div>
         </div>
-        <div class="favorites__items-spring">
+        <div class="favorites__items-spring hidden">
           <div class="favorites__item">
             <h3 class="favorites__item-mark">Staff Picks</h3>
             <h4 class="favorites__item-title">The Body</h4>
@@ -239,7 +255,7 @@
                 her age with the promise to bring her to America. Her marriage is an opportunity for her family to
                 eventually immigrate. For fans of Isabel Allende and Julia Alvarez.
               </div>
-              <button type="button" class=" own-button" disabled>Own</button>
+              <button type="button" class=" favorites__item-button">Buy</button>
             </div>
             <div class="favorites__item-image">
               <img class="favorites__item-image__picture" src="src/img/favorites/spring/cruz.jpeg"
@@ -247,7 +263,7 @@
             </div>
           </div>
         </div>
-        <div class="favorites__items-summer">
+        <div class="favorites__items-summer hidden">
           <div class="favorites__item">
             <h3 class="favorites__item-mark">Staff Picks</h3>
             <h4 class="favorites__item-title">Crude: A Memoir</h4>
@@ -257,7 +273,9 @@
                 struggles of a group of indigenous Ecuadoreans as they try to sue the ChevronTexaco company for damage
                 their oil fields did to the Amazon and her people.
               </div>
-              <button type="button" class="favorites__item-button">Buy</button>
+              <div id="own">
+                <button type="button" class="favorites__item-button">Buy</button>
+              </div>
             </div>
             <div class="favorites__item-image">
               <img class="favorites__item-image__picture" src="src/img/favorites/summer/memoir.jpeg"
@@ -306,7 +324,7 @@
                 tumultuous history of Hawaii as a Hawaiian woman gathers her four granddaughters together in an erotic
                 tale of villains and dreamers, queens and revolutionaries, lepers and healers.
               </div>
-              <button type="button" class=" own-button" disabled>Own</button>
+              <button type="button" class=" favorites__item-button">Buy</button>
             </div>
             <div class="favorites__item-image">
               <img class="favorites__item-image__picture" src="src/img/favorites/summer/kiana.jpeg"
@@ -314,7 +332,7 @@
             </div>
           </div>
         </div>
-        <div class="favorites__items-autumn">
+        <div class="favorites__items-autumn hidden">
           <div class="favorites__item">
             <h3 class="favorites__item-mark">Staff Picks</h3>
             <h4 class="favorites__item-title">Casual Conversation</h4>
@@ -372,7 +390,7 @@
                 of codependency. A father and child experience the shared trauma of giving birth to gods from their
                 wounds.
               </div>
-              <button type="button" class=" own-button" disabled>Own</button>
+              <button type="button" class="favorites__item-button">Buy</button>
             </div>
             <div class="favorites__item-image">
               <img class="favorites__item-image__picture" src="src/img/favorites/autumn/slug.jpeg"
@@ -515,8 +533,8 @@
             You will be able to see a reader card after logging into account or you can register a new account
           </div>
           <div class="library-card__info-registration__buttons">
-            <button type="button" class="library-card__info-registration__button">Sign Up</button>
-            <button type="button" class="library-card__info-registration__button">Log in</button>
+            <button type="button" class="library-card__info-registration__button" id="btn-sign-up">Sign Up</button>
+            <button type="button" class="library-card__info-registration__button" id="btn-log-in">Log in</button>
           </div>
         </div>
       </div>
@@ -580,6 +598,149 @@
     </div>
   </div>
 </footer>
+
+<div class="modal" id="modal-reg">
+  <div class="modal__body">
+    <div id="registerModal" class="modal__register">
+      <h2 class="modal__register-title">Register</h2>
+      <button class="modal__register-close" id="register-close"></button>
+      <form id="registerForm" class="modal__register-form">
+        <label for="firstName">First name</label>
+        <input type="text" id="firstName" required>
+
+        <label for="lastName">Last name</label>
+        <input type="text" id="lastName" required>
+
+        <label for="email">E-mail</label>
+        <input type="email" id="email" required>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" required>
+
+        <button type="submit" id="sign-up">Sign Up</button>
+      </form>
+      <p class="modal__register-question">Already have an account? <span id="loginLink">Login</span></p>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="modal-log">
+  <div class="modal__body">
+    <div id="loginModal" class="modal__login">
+      <button class="modal__register-close" id="login-close"></button>
+      <h2 class="modal__register-title">Login</h2>
+      <form id="loginForm" class="modal__register-form modal__login-form">
+        <label for="email-or-card">E-mail or readers card</label>
+        <input type="text" id="email-or-card" required>
+
+        <label for="password-login">Password</label>
+        <input type="password" id="password-login" required>
+
+        <button type="submit" id="login-in">Log In</button>
+      </form>
+      <p class="modal__register-question">Don’t have an account?<span id="registerLink">Register</span></p>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="modal-book">
+  <div class="modal__body">
+    <div id="buyModal" class="modal__buy">
+      <button class="modal__register-close modal__buy-close" id="buy-close"></button>
+      <h2 class="modal__buy-title">Buy a library card</h2>
+      <div class="modal__buy-container">
+        <form id="buyForm" class="modal__register-form modal__buy-form">
+          <label for="number-card">Bank card number</label>
+          <input type="text" id="number-card" required>
+
+          <label id="expiration-code">Expiration code</label>
+          <div class="expiration-code">
+            <input type="text" id="expiration-code-month" aria-labelledby="expiration-code" required>
+            <input type="text" id="expiration-code-year" aria-labelledby="expiration-code" required>
+          </div>
+
+          <label for="cvc">CVC</label>
+          <input type="password" id="cvc" required>
+
+          <label for="cardholder-name">Cardholder name</label>
+          <input type="text" id="cardholder-name" required>
+
+          <label for="postal-code">Postal code</label>
+          <input type="text" id="postal-code" required>
+
+          <label for="city">City / Town</label>
+          <input type="text" id="city" required>
+
+          <div class="modal__buy-price">
+            <button type="submit" id="buy">Buy</button>
+            <span class="price">$ 25.00</span>
+          </div>
+        </form>
+        <div class="modal__buy-description">If you are live, work, attend school, or pay property taxes in New York
+          State, you can get a $25 digital
+          library card right now using this online form. Visitors to New York State can also use this form to apply for
+          a temporary card.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="modal-profile">
+  <div class="modal__body">
+    <div id="profileModal" class="modal__profile">
+      <button class="modal__register-close modal__profile-close" id="profile-close"></button>
+      <div class="modal__profile-user">
+        <div class="modal__profile-user__initials">JD</div>
+        <div class="modal__profile-user__fullName">John Doe</div>
+      </div>
+      <div class="modal__profile-info">
+        <h2 class="modal__profile-info__title">My profile</h2>
+        <div class="library-card__info-icons">
+          <div class="library-card__info-icon">
+            <span class="library-card__info-icon__text">visits</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M10.5 10C13.2614 10 15.5 7.76142 15.5 5C15.5 2.23858 13.2614 0 10.5 0C7.73858 0 5.5 2.23858 5.5 5C5.5 7.76142 7.73858 10 10.5 10ZM17.5711 13.9289C19.4464 15.8043 20.5 18.3478 20.5 21H10.5L0.5 21C0.5 18.3478 1.55357 15.8043 3.42893 13.9289C5.3043 12.0536 7.84784 11 10.5 11C13.1522 11 15.6957 12.0536 17.5711 13.9289Z"
+                    fill="#BB945F"/>
+            </svg>
+            <span class="library-card__info-icon__count" id="entry">0</span>
+          </div>
+          <div class="library-card__info-icon">
+            <span class="library-card__info-icon__text">bonuses</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+              <path
+                d="M10 0L12.2249 3.31001L15.8779 2.00532L15.8249 6.05634L19.5106 7.25532L17.2 10.5L19.5106 13.7447L15.8249 14.9437L15.8779 18.9947L12.2249 17.69L10 21L7.77508 17.69L4.12215 18.9947L4.17508 14.9437L0.489435 13.7447L2.8 10.5L0.489435 7.25532L4.17508 6.05634L4.12215 2.00532L7.77508 3.31001L10 0Z"
+                fill="#BB945F"/>
+            </svg>
+            <span class="library-card__info-icon__count">1240</span>
+          </div>
+          <div class="library-card__info-icon">
+            <span class="library-card__info-icon__text">books</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+              <rect width="20" height="21" fill="#BB945F"/>
+              <rect x="2" width="1" height="19" fill="#826844"/>
+              <rect x="1" width="1" height="21" fill="white"/>
+            </svg>
+            <span class="library-card__info-icon__count" id="books">0</span>
+          </div>
+        </div>
+        <h3 class="modal__profile-info-subtitle">Rented books</h3>
+        <ul class="modal__profile-info-books" id="rented-books-list"></ul>
+        <div class="modal__profile-info-card">
+          <span class="modal__profile-info-card__title">Card number</span>
+          <span class="modal__profile-info-card__number">F00234030</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" viewBox="0 0 14 12" fill="none">
+            <rect x="2.46826" y="0.25" width="10.5917" height="9.5" rx="0.75" stroke="black" stroke-width="0.5"/>
+            <rect x="0.25" y="2.25" width="10.5917" height="9.5" rx="0.75" fill="white" stroke="black"
+                  stroke-width="0.5"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <script src="src/js/scripts.js"></script>
 <script src="src/js/index.js"></script>

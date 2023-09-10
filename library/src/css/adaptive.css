@@ -1,32 +1,32 @@
-@media screen and (max-width: 1262px) {
-  .about__image {
-    gap: 58px;
+@media screen and (max-width: 1439px) {
+  .about__carousel {
+    max-width: 950px;
   }
 
-  .about__image-img:nth-last-child(-n+5) {
-    display: none;
+  .about__carousel-container {
+    display: flex;
+    align-items: center;
+    gap: 58px;
   }
 
   .about__image-svg {
     display: flex;
     margin-top: 21px;
     cursor: pointer;
+    user-select: none;
   }
 
-  .about__image-svg:hover path{
+  .disabled {
+    cursor: not-allowed;
+    opacity: 0.2;
+  }
+
+  .about__image-svg:hover path {
     stroke: #BB945F;
   }
 
-  .about__pagination:nth-child(4),
-  .about__pagination:nth-child(5) {
+  .about__pagination:nth-child(4) {
     display: flex;
-  }
-
-  .favorites__items-winter,
-  .favorites__items-spring,
-  .favorites__items-summer,
-  .favorites__items-autumn {
-    flex-direction: column;
   }
 
   .contacts__info {
@@ -41,7 +41,24 @@
   }
 }
 
-@media screen and (max-width: 1162px) {
+@media screen and (max-width: 1259px) {
+  .favorites__items-winter,
+  .favorites__items-spring,
+  .favorites__items-summer,
+  .favorites__items-autumn {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 1159px) {
+  .about__carousel {
+    max-width: 450px;
+  }
+
+  .about__pagination:nth-child(5) {
+    display: flex;
+  }
+
   .library-card__info {
     flex-direction: column;
     align-items: center;
@@ -62,10 +79,6 @@
 @media screen and (max-width: 1024px) {
   body.lock {
     overflow: hidden;
-  }
-
-  .icon {
-    z-index: 1;
   }
 
   .menu__icon {
@@ -148,7 +161,7 @@
     text-align: center;
   }
 
-  .about__image-img {
+  .about__image-container {
     margin-bottom: 20px;
   }
 
@@ -164,6 +177,11 @@
 
 @media screen and (max-width: 767px) {
   .favorites__seasons {
-    gap: 40px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.9);
+    gap: 50px;
+    width: 100%;
   }
 }
