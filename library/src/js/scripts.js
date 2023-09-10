@@ -265,7 +265,7 @@ function validateForm() {
   setAccessToken(accessToken);
   saveUserDataToLocalStorage(firstName, lastName, email, password);
   generateCardNumber();
-  visitCount();
+  visitCountPerson();
   modalRegisterPerson();
   location.reload();
 }
@@ -351,7 +351,7 @@ loginButton.addEventListener('click', function (e) {
 
   if (isEmailOrCardValid && isPasswordValid) {
     setAccessToken(accessToken);
-    visitCount();
+    visitCountPerson();
     initializeUser();
     modalLoginPerson(false);
   } else {
@@ -374,9 +374,19 @@ loginLink.addEventListener('click', () => {
 });
 
 // изменение страницы после инициализации
+let visitCount = localStorage.getItem('visitCount');
+
 function initializeUser() {
   if (localStorage.getItem('userData')) {
     let userIcon = document.getElementById('userIcon');
+
+    const entryCountElement = document.getElementById('entry');
+
+    if (visitCount !== null) {
+      entryCountElement.textContent = visitCount;
+    } else {
+      entryCountElement.textContent = '0';
+    }
 
     if (localStorage.getItem('accessToken') === 'true') {
       userIcon.textContent = userData.firstName[0].toUpperCase() + userData.lastName[0].toUpperCase();
@@ -419,7 +429,7 @@ initializeUser();
 
 // смена информации в блоке Digital Library Cards
 function updateLibraryCardInfoFind(userData) {
-  let bookCount = parseInt(localStorage.getItem('bookCount'));
+  let bookCount = localStorage.getItem('bookCount');
 
   let libraryCardInfoFind = document.querySelector('.library-card__info-find');
   libraryCardInfoFind.innerHTML =
@@ -438,7 +448,7 @@ function updateLibraryCardInfoFind(userData) {
                   d="M10.5 10C13.2614 10 15.5 7.76142 15.5 5C15.5 2.23858 13.2614 0 10.5 0C7.73858 0 5.5 2.23858 5.5 5C5.5 7.76142 7.73858 10 10.5 10ZM17.5711 13.9289C19.4464 15.8043 20.5 18.3478 20.5 21H10.5L0.5 21C0.5 18.3478 1.55357 15.8043 3.42893 13.9289C5.3043 12.0536 7.84784 11 10.5 11C13.1522 11 15.6957 12.0536 17.5711 13.9289Z"
                   fill="#BB945F"/>
           </svg>
-          <span class="library-card__info-form__icon-count">${localStorage.getItem('visitCount')}</span>
+          <span class="library-card__info-form__icon-count" id="entry">${localStorage.getItem('visitCount')}</span>
         </div>
         <div class="library-card__info-form__icon">
           <span class="library-card__info-form__icon-text">bonuses</span>
@@ -467,9 +477,8 @@ function updateLibraryCardInfoFind(userData) {
 }
 
 // счетчик books
-function visitCount() {
+function visitCountPerson() {
   // проверка, есть ли уже счетчик в Local Storage, и инициализируем его, если не найден
-  let visitCount = localStorage.getItem('visitCount');
   if (visitCount === null) {
     visitCount = 0;
   } else {
@@ -479,6 +488,11 @@ function visitCount() {
   // увеличнние счетчик при каждом посещении
   visitCount++;
   localStorage.setItem('visitCount', visitCount.toString());
+
+  // обновляем текстовое содержимое элемента с id "entry"
+  let entryElement = document.getElementById('entry');
+  console.log('entryElement:', entryElement);
+  entryElement.textContent = visitCount.toString();
 }
 
 //modal books
@@ -548,16 +562,20 @@ btnBuy.addEventListener('click', (event) => {
   }
 });
 
+
+let bookCount = localStorage.getItem('bookCount');
 function incrementClickCount() {
-  let clickCount = localStorage.getItem('bookCount');
-  if (clickCount === null) {
-    clickCount = 0;
+  if (bookCount === null) {
+    bookCount = 0;
   } else {
-    clickCount = parseInt(clickCount);
+    bookCount = parseInt(bookCount);
   }
 
-  clickCount++;
-  localStorage.setItem('bookCount', clickCount.toString());
+  bookCount++;
+  localStorage.setItem('bookCount', bookCount.toString());
+
+  const booksCountElement = document.getElementById('books');
+  booksCountElement.textContent = bookCount;
 }
 
 // выбор модального окна для покупки или логина
@@ -614,7 +632,7 @@ let libraryCardInfoFind = document.querySelector('.library-card__info-find');
 libraryCardInfoFind.addEventListener("click", function (event) {
   const originalHTML = libraryCardInfoFind.innerHTML;
   const checkButton = event.target.closest(".library-card__info-find__button");
-  if (checkButton) {
+  if (checkButton && userData) {
     const storageFirstName = userData.firstName;
     const storageLastName = userData.lastName;
     const storageCardNumber = localStorage.getItem('cardNumber');
@@ -634,21 +652,17 @@ libraryCardInfoFind.addEventListener("click", function (event) {
 });
 
 // обновление my-profile
-const visitCountElement = document.getElementById('entry');
-const bookCountElement = document.getElementById('books');
 const cardNumberElement = document.querySelector('.modal__profile-info-card__number');
 const initialsElement = document.querySelector('.modal__profile-user__initials');
 const fullNameElement = document.querySelector('.modal__profile-user__fullName');
 
-const visitCountPerson = localStorage.getItem('visitCount');
-const bookCount = localStorage.getItem('bookCount');
 const cardNumber = localStorage.getItem('cardNumber');
 
-visitCountElement.textContent = visitCountPerson;
-bookCountElement.textContent = bookCount;
-cardNumberElement.textContent = cardNumber;
-initialsElement.textContent = userData.firstName[0].toUpperCase() + userData.lastName[0].toUpperCase();
-fullNameElement.textContent = userData.firstName.toUpperCase() + ' ' + userData.lastName.toUpperCase();
+if (userData && userData.firstName && userData.lastName && cardNumber) {
+  initialsElement.textContent = userData.firstName[0].toUpperCase() + userData.lastName[0].toUpperCase();
+  fullNameElement.textContent = userData.firstName.toUpperCase() + ' ' + userData.lastName.toUpperCase();
+  cardNumberElement.textContent = cardNumber;
+}
 
 //копирование кода карты
 const copyCardNumberButton = document.querySelector('.modal__profile-info-card svg');
