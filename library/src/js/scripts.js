@@ -419,6 +419,8 @@ initializeUser();
 
 // смена информации в блоке Digital Library Cards
 function updateLibraryCardInfoFind(userData) {
+  let bookCount = parseInt(localStorage.getItem('bookCount'));
+
   let libraryCardInfoFind = document.querySelector('.library-card__info-find');
   libraryCardInfoFind.innerHTML =
     `<h3 class="library-card__info-title">Your Library card</h3>
@@ -454,7 +456,7 @@ function updateLibraryCardInfoFind(userData) {
             <rect x="2" width="1" height="19" fill="#826844"/>
             <rect x="1" width="1" height="21" fill="white"/>
           </svg>
-          <span class="library-card__info-form__icon-count">0</span>
+          <span class="library-card__info-form__icon-count">${bookCount}</span>
         </div>
       </div>   
     </div>`
@@ -499,17 +501,87 @@ modalBook.addEventListener('click', (event) => {
 });
 
 buyClose.addEventListener('click', modalBookBuy);
-btnBuy.addEventListener('click', modalBookBuy);
+btnBuy.addEventListener('click', (event) => {
+  event.preventDefault();
+
+  const cardNumberInput = document.getElementById('number-card');
+  const expirationMonthInput = document.getElementById('expiration-code-month');
+  const expirationYearInput = document.getElementById('expiration-code-year');
+  const cvcInput = document.getElementById('cvc');
+  const cardholderNameInput = document.getElementById('cardholder-name');
+  const postalCodeInput = document.getElementById('postal-code');
+  const cityInput = document.getElementById('city');
+
+  const cardNumberRegex = /^(\d{4} ?){3}\d{4}$/;
+  const expirationMonthRegex = /^(0[1-9]|1[0-2])$/;
+  const expirationYearRegex = /^(2[3-9]|[3-9]\d)$/;
+  const cvcRegex = /^\d{3}$/;
+  const postalCodeRegex = /^\d{6}$/;
+  const cardholderNameRegex = new RegExp(`${userData.firstName} ${userData.lastName}`);
+  const cityRegex = /^[A-ZА-Я][a-zA-Zа-яА-Я\-]+$/;
+
+  let errorMessage = '';
+
+  if (!cardNumberRegex.test(cardNumberInput.value.replace(/ /g, ''))) {
+    errorMessage = 'Введите корректный номер карты (16 цифр, с или без пробелов).';
+  } else if (!expirationMonthRegex.test(expirationMonthInput.value)) {
+    errorMessage = 'Введите корректный месяц истечения (01-12).';
+  } else if (!expirationYearRegex.test(expirationYearInput.value)) {
+    errorMessage = 'Введите корректный год истечения (23-99).';
+  } else if (!cvcRegex.test(cvcInput.value)) {
+    errorMessage = 'Введите корректный CVC (3 цифры).';
+  } else if (!cardholderNameRegex.test(cardholderNameInput.value)) {
+    errorMessage = 'Имя и фамилия владельца карты должны соответствовать вашим данным с localStorage.';
+  } else if (!postalCodeRegex.test(postalCodeInput.value)) {
+    errorMessage = 'Введите корректный почтовый код (6 цифр).';
+  } else if (!cityRegex.test(cityInput.value)) {
+    errorMessage = 'Введите корректный город (с заглавной буквы, допустимы символы - и буквы).';
+  }
+
+  if (errorMessage) {
+    alert(errorMessage);
+  } else {
+    alert('Покупка успешно завершена!');
+    localStorage.setItem('purchaseCompleted', 'true'); // Сохраняем значение в localStorage
+    location.reload();
+    modalBookBuy();
+  }
+});
+
+function incrementClickCount() {
+  let clickCount = localStorage.getItem('bookCount');
+  if (clickCount === null) {
+    clickCount = 0;
+  } else {
+    clickCount = parseInt(clickCount);
+  }
+
+  clickCount++;
+  localStorage.setItem('bookCount', clickCount.toString());
+}
 
 // выбор модального окна для покупки или логина
 favoritesBtn.forEach(button => {
   button.addEventListener('click', () => {
-    if (localStorage.getItem('accessToken')) {
-      modalBookBuy(); // modal books
+    if (localStorage.getItem('purchaseCompleted') === 'true') {
+      const ownButton = document.createElement('button');
+      ownButton.setAttribute('type', 'button');
+      ownButton.classList.add('own-button');
+      ownButton.textContent = 'Own';
+
+      button.parentNode.replaceChild(ownButton, button);
+      incrementClickCount();
+      updateLibraryCardInfoFind(userData);
+    } else if (localStorage.getItem('accessToken')) {
+      modalBookBuy();
     } else {
-      modalLoginPerson(); // modal login
+      modalLoginPerson();
     }
   });
+});
+
+window.addEventListener('beforeunload', () => {
+  localStorage.setItem('bookCount', '0');
 });
 
 //modal profile
@@ -559,4 +631,33 @@ libraryCardInfoFind.addEventListener("click", function (event) {
       alert('Введенные данные не совпадают с данными в системе!');
     }
   }
+});
+
+// обновление my-profile
+const visitCountElement = document.getElementById('entry');
+const bookCountElement = document.getElementById('books');
+const cardNumberElement = document.querySelector('.modal__profile-info-card__number');
+const initialsElement = document.querySelector('.modal__profile-user__initials');
+const fullNameElement = document.querySelector('.modal__profile-user__fullName');
+
+const visitCountPerson = localStorage.getItem('visitCount');
+const bookCount = localStorage.getItem('bookCount');
+const cardNumber = localStorage.getItem('cardNumber');
+
+visitCountElement.textContent = visitCountPerson;
+bookCountElement.textContent = bookCount;
+cardNumberElement.textContent = cardNumber;
+initialsElement.textContent = userData.firstName[0].toUpperCase() + userData.lastName[0].toUpperCase();
+fullNameElement.textContent = userData.firstName.toUpperCase() + ' ' + userData.lastName.toUpperCase();
+
+//копирование кода карты
+const copyCardNumberButton = document.querySelector('.modal__profile-info-card svg');
+copyCardNumberButton.addEventListener('click', () => {
+  // использование Clipboard API
+  const cardNumberText = cardNumberElement.textContent;
+  navigator.clipboard.writeText(cardNumberText).then(() => {
+    alert('Код карты скопирован в буфер обмена!');
+  }).catch((error) => {
+    console.error('Ошибка при копировании в буфер обмена: ', error);
+  });
 });

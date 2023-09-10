@@ -273,7 +273,9 @@
                 struggles of a group of indigenous Ecuadoreans as they try to sue the ChevronTexaco company for damage
                 their oil fields did to the Amazon and her people.
               </div>
-              <button type="button" class="favorites__item-button">Buy</button>
+              <div id="own">
+                <button type="button" class="favorites__item-button">Buy</button>
+              </div>
             </div>
             <div class="favorites__item-image">
               <img class="favorites__item-image__picture" src="src/img/favorites/summer/memoir.jpeg"
@@ -388,7 +390,7 @@
                 of codependency. A father and child experience the shared trauma of giving birth to gods from their
                 wounds.
               </div>
-              <button type="button" class=" favorites__item-button">Buy</button>
+              <button type="button" class="favorites__item-button">Buy</button>
             </div>
             <div class="favorites__item-image">
               <img class="favorites__item-image__picture" src="src/img/favorites/autumn/slug.jpeg"
@@ -658,7 +660,7 @@
           </div>
 
           <label for="cvc">CVC</label>
-          <input type="text" id="cvc" required>
+          <input type="password" id="cvc" required>
 
           <label for="cardholder-name">Cardholder name</label>
           <input type="text" id="cardholder-name" required>
@@ -674,7 +676,8 @@
             <span class="price">$ 25.00</span>
           </div>
         </form>
-        <div class="modal__buy-description">If you are live, work, attend school, or pay property taxes in New York State, you can get a $25 digital
+        <div class="modal__buy-description">If you are live, work, attend school, or pay property taxes in New York
+          State, you can get a $25 digital
           library card right now using this online form. Visitors to New York State can also use this form to apply for
           a temporary card.
         </div>
@@ -683,9 +686,9 @@
   </div>
 </div>
 
-<div class="modal b" id="modal-profile">
+<div class="modal" id="modal-profile">
   <div class="modal__body">
-    <div id="profileModal" class="modal__profile b1">
+    <div id="profileModal" class="modal__profile">
       <button class="modal__register-close modal__profile-close" id="profile-close"></button>
       <div class="modal__profile-user">
         <div class="modal__profile-user__initials">JD</div>
@@ -701,7 +704,7 @@
                     d="M10.5 10C13.2614 10 15.5 7.76142 15.5 5C15.5 2.23858 13.2614 0 10.5 0C7.73858 0 5.5 2.23858 5.5 5C5.5 7.76142 7.73858 10 10.5 10ZM17.5711 13.9289C19.4464 15.8043 20.5 18.3478 20.5 21H10.5L0.5 21C0.5 18.3478 1.55357 15.8043 3.42893 13.9289C5.3043 12.0536 7.84784 11 10.5 11C13.1522 11 15.6957 12.0536 17.5711 13.9289Z"
                     fill="#BB945F"/>
             </svg>
-            <span class="library-card__info-icon__count">23</span>
+            <span class="library-card__info-icon__count" id="entry">23</span>
           </div>
           <div class="library-card__info-icon">
             <span class="library-card__info-icon__text">bonuses</span>
@@ -719,7 +722,7 @@
               <rect x="2" width="1" height="19" fill="#826844"/>
               <rect x="1" width="1" height="21" fill="white"/>
             </svg>
-            <span class="library-card__info-icon__count">2</span>
+            <span class="library-card__info-icon__count" id="books">2</span>
           </div>
         </div>
         <h3 class="modal__profile-info-subtitle">Rented books</h3>
@@ -732,7 +735,8 @@
           <span class="modal__profile-info-card__number">F00234030</span>
           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" viewBox="0 0 14 12" fill="none">
             <rect x="2.46826" y="0.25" width="10.5917" height="9.5" rx="0.75" stroke="black" stroke-width="0.5"/>
-            <rect x="0.25" y="2.25" width="10.5917" height="9.5" rx="0.75" fill="white" stroke="black" stroke-width="0.5"/>
+            <rect x="0.25" y="2.25" width="10.5917" height="9.5" rx="0.75" fill="white" stroke="black"
+                  stroke-width="0.5"/>
           </svg>
         </div>
       </div>

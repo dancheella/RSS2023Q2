@@ -444,18 +444,22 @@ body {
 @keyframes fadeOut {
   from {
     opacity: 1;
+    visibility: visible;
   }
   to {
     opacity: 0;
+    visibility: hidden;
   }
 }
 
 @keyframes fadeIn {
   from {
     opacity: 0;
+    visibility: hidden;
   }
   to {
     opacity: 1;
+    visibility: visible;
   }
 }
 
@@ -581,11 +585,11 @@ body {
   color: #FFF;
 }
 
-/*.own-button {*/
-/*  border: 1px solid #BB945F;*/
-/*  color: #BB945F;*/
-/*  cursor: not-allowed;*/
-/*}*/
+.own-button {
+  border: 1px solid #BB945F;
+  color: #BB945F;
+  cursor: not-allowed;
+}
 
 .favorites__item-image {
   position: absolute;
