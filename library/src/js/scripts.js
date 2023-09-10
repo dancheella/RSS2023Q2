@@ -199,7 +199,6 @@ iconRegisterLogout.addEventListener('click', modalRegisterPerson);
 registerClose.addEventListener('click', modalRegisterPerson);
 btnSignUp.addEventListener('click', modalRegisterPerson);
 
-
 //validate
 let signUpButton = document.getElementById('sign-up');
 const accessToken = 'true';
@@ -562,9 +561,9 @@ btnBuy.addEventListener('click', (event) => {
   }
 });
 
-
+// счетчик для книг
 let bookCount = localStorage.getItem('bookCount');
-function incrementClickCount() {
+function incrementClickCountBooks() {
   if (bookCount === null) {
     bookCount = 0;
   } else {
@@ -581,6 +580,10 @@ function incrementClickCount() {
 // выбор модального окна для покупки или логина
 favoritesBtn.forEach(button => {
   button.addEventListener('click', () => {
+    const bookContainer = button.closest('.favorites__item');
+    const titleElement = bookContainer.querySelector('.favorites__item-title');
+    const authorElement = bookContainer.querySelector('.favorites__item-author');
+
     if (localStorage.getItem('purchaseCompleted') === 'true') {
       const ownButton = document.createElement('button');
       ownButton.setAttribute('type', 'button');
@@ -588,8 +591,9 @@ favoritesBtn.forEach(button => {
       ownButton.textContent = 'Own';
 
       button.parentNode.replaceChild(ownButton, button);
-      incrementClickCount();
+      incrementClickCountBooks();
       updateLibraryCardInfoFind(userData);
+      updateRentedBooksList(titleElement.textContent.trim(), authorElement.textContent.trim());
     } else if (localStorage.getItem('accessToken')) {
       modalBookBuy();
     } else {
@@ -675,3 +679,14 @@ copyCardNumberButton.addEventListener('click', () => {
     console.error('Ошибка при копировании в буфер обмена: ', error);
   });
 });
+
+function updateRentedBooksList(bookTitle, bookAuthor) {
+  const rentedBooksList = document.querySelector('.modal__profile-info-books');
+
+  const listItem = document.createElement('li');
+  listItem.classList.add('modal__profile-info-book');
+
+  listItem.textContent = `${bookTitle} (${bookAuthor})`;
+
+  rentedBooksList.appendChild(listItem);
+}

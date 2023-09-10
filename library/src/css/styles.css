@@ -1376,9 +1376,11 @@ body {
 .modal__profile-info-books {
   display: flex;
   flex-direction: column;
-  margin-left: 29px;
   gap: 10px;
   margin-bottom: 40px;
+  height: 50px;
+  overflow: auto;
+  white-space: nowrap;
 }
 
 .modal__profile-info-book {
@@ -1388,8 +1390,32 @@ body {
   line-height: 20px;
   letter-spacing: 2px;
   text-transform: capitalize;
+  padding-left: 20px;
+  position: relative;
+  margin-left: 10px;
+  list-style: none;
 }
 
+.modal__profile-info-books::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.modal__profile-info-books::-webkit-scrollbar-track {
+  border-radius: 15px;
+  background-color: #0C0C0E;
+}
+
+.modal__profile-info-books::-webkit-scrollbar-thumb {
+  background: #BB945F;
+  border-radius: 10px;
+}
+
+.modal__profile-info-book::before {
+  content: '\2022';
+  position: absolute;
+  left: 0;
+}
 .modal__profile-info-card {
   display: flex;
   align-items: center;
