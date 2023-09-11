@@ -169,10 +169,14 @@ icon.addEventListener('click', () => {
 });
 
 document.addEventListener('click', e => {
-  if (!userMenu.contains(e.target) && !icon.contains(e.target)) {
+  if (!icon.contains(e.target)) {
     userMenu.classList.remove('active');
     body.classList.remove('lock');
   }
+});
+
+userMenu.addEventListener('click', e => {
+  e.stopPropagation();
 });
 
 //modal register
@@ -373,13 +377,13 @@ loginLink.addEventListener('click', () => {
 });
 
 // изменение страницы после инициализации
-let visitCount = localStorage.getItem('visitCount');
 
 function initializeUser() {
   if (localStorage.getItem('userData')) {
     let userIcon = document.getElementById('userIcon');
 
     const entryCountElement = document.getElementById('entry');
+    let visitCount = localStorage.getItem('visitCount');
 
     if (visitCount !== null) {
       entryCountElement.textContent = visitCount;
@@ -475,8 +479,10 @@ function updateLibraryCardInfoFind(userData) {
   libraryCardInfoBg.style.paddingBottom = '14px';
 }
 
-// счетчик books
+// счетчик посещений
 function visitCountPerson() {
+  let visitCount = localStorage.getItem('visitCount');
+
   // проверка, есть ли уже счетчик в Local Storage, и инициализируем его, если не найден
   if (visitCount === null) {
     visitCount = 0;
