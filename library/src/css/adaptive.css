@@ -1,0 +1,187 @@
+@media screen and (max-width: 1439px) {
+  .about__carousel {
+    max-width: 950px;
+  }
+
+  .about__carousel-container {
+    display: flex;
+    align-items: center;
+    gap: 58px;
+  }
+
+  .about__image-svg {
+    display: flex;
+    margin-top: 21px;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .disabled {
+    cursor: not-allowed;
+    opacity: 0.2;
+  }
+
+  .about__image-svg:hover path {
+    stroke: #BB945F;
+  }
+
+  .about__pagination:nth-child(4) {
+    display: flex;
+  }
+
+  .contacts__info {
+    flex-direction: column;
+    align-items: center;
+    gap: 100px;
+  }
+
+  .contacts__info-description {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 1259px) {
+  .favorites__items-winter,
+  .favorites__items-spring,
+  .favorites__items-summer,
+  .favorites__items-autumn {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 1159px) {
+  .about__carousel {
+    max-width: 450px;
+  }
+
+  .about__pagination:nth-child(5) {
+    display: flex;
+  }
+
+  .library-card__info {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .library-card__info-registration {
+    align-items: center;
+    gap: 40px;
+  }
+
+  .library-card__info-registration__description {
+    text-align: center;
+    max-width: 600px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  body.lock {
+    overflow: hidden;
+  }
+
+  .menu__icon {
+    display: block;
+    width: 45px;
+    height: 20px;
+    position: relative;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .menu__icon-span {
+    position: absolute;
+    top: calc(50% - 2px);
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: white;
+    transition: .3s;
+  }
+
+  .menu__icon-span:first-child {
+    top: -2px;
+  }
+
+  .menu__icon-span:last-child {
+    top: auto;
+    bottom: 0;
+  }
+
+  .menu__icon.active .menu__icon-span {
+    transform: scale(0);
+  }
+
+  .menu__icon.active .menu__icon-span:first-child {
+    transform: rotate(45deg);
+    top: 9px;
+  }
+
+  .menu__icon.active .menu__icon-span:last-child {
+    transform: rotate(-45deg);
+    top: 9px;
+  }
+
+  .menu__body {
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 100%;
+    overflow: auto;
+    transition: all 0.3s;
+    background-color: #29292999
+  }
+
+  .menu__body.active {
+    right: 0;
+  }
+
+  .menu__list {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    min-width: 334px;
+    background-color: #0C0C0E;
+    transition: all 0.3s;
+  }
+
+  .welcome {
+    padding-bottom: 160px;
+  }
+
+  .about__info-text {
+    text-align: center;
+  }
+
+  .about__image-container {
+    margin-bottom: 20px;
+  }
+
+  .coffee-shop__menu {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .footer__rss {
+    margin-left: 11px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .favorites__seasons {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.9);
+    gap: 50px;
+    width: 100%;
+  }
+}
